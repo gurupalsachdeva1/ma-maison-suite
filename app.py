@@ -13,7 +13,7 @@ import socket
 import secrets
 from datetime import datetime
 from fastapi import FastAPI, HTTPException, Request, Response, Depends
-from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse
+from fastapi.responses import HTMLResponse, JSONResponse, StreamingResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -46,11 +46,40 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 
 if not os.path.exists(TEMPLATES_DIR):
-    os.makedirs(TEMPLATES_DIR)
+    os.makedirs(TEMPLATES_DIR, exist_ok=True)
 if not os.path.exists(STATIC_DIR):
-    os.makedirs(STATIC_DIR)
+    os.makedirs(STATIC_DIR, exist_ok=True)
 
-app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+if os.path.exists(STATIC_DIR):
+    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+
+def find_template(filename: str):
+    """Finds template file checking templates/ subfolder, root directory, and cwd."""
+    candidates = [
+        os.path.join(TEMPLATES_DIR, filename),
+        os.path.join(BASE_DIR, filename),
+        os.path.join(os.getcwd(), "templates", filename),
+        os.path.join(os.getcwd(), filename),
+    ]
+    for p in candidates:
+        if os.path.exists(p):
+            return p
+    return None
+
+def find_static_file(filename: str):
+    """Finds static file checking static/, static/img/, root directory, and cwd."""
+    candidates = [
+        os.path.join(STATIC_DIR, "img", filename),
+        os.path.join(STATIC_DIR, filename),
+        os.path.join(BASE_DIR, "static", "img", filename),
+        os.path.join(BASE_DIR, "static", filename),
+        os.path.join(BASE_DIR, filename),
+        os.path.join(os.getcwd(), filename),
+    ]
+    for p in candidates:
+        if os.path.exists(p):
+            return p
+    return None
 
 # In-memory session store (token -> user dict)
 SESSIONS = {}
@@ -182,31 +211,46 @@ def require_admin(user = Depends(get_current_user)):
         raise HTTPException(status_code=403, detail="Forbidden: Administrator access required.")
     return user
 
+# --- Static File Fallback Routes (Supports flat GitHub uploads) ---
+@app.get("/static/img/{filename}")
+def serve_static_img(filename: str):
+    p = find_static_file(filename)
+    if p and os.path.exists(p):
+        return FileResponse(p)
+    raise HTTPException(status_code=404, detail="Image not found")
+
+@app.get("/static/{filename}")
+def serve_static_root(filename: str):
+    p = find_static_file(filename)
+    if p and os.path.exists(p):
+        return FileResponse(p)
+    raise HTTPException(status_code=404, detail="File not found")
+
 # --- HTML Serving Routes ---
 @app.get("/", response_class=HTMLResponse)
 def serve_home():
     """Serves the Ma Maison Corporate Export Home Page."""
-    home_file = os.path.join(TEMPLATES_DIR, "home.html")
-    if os.path.exists(home_file):
-        with open(home_file, "r", encoding="utf-8") as f:
+    path = find_template("home.html")
+    if path and os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
             return f.read()
     return "<h1>Ma Maison Corporate Export Portal - Initializing...</h1>"
 
 @app.get("/portal", response_class=HTMLResponse)
 def serve_portal():
     """Serves the Executive BI Suite Tracker & Analytics."""
-    portal_file = os.path.join(TEMPLATES_DIR, "index.html")
-    if os.path.exists(portal_file):
-        with open(portal_file, "r", encoding="utf-8") as f:
+    path = find_template("index.html")
+    if path and os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
             return f.read()
     return "<h1>Ma Maison Executive BI Suite - Initializing...</h1>"
 
 @app.get("/admin", response_class=HTMLResponse)
 def serve_admin():
     """Serves the Admin User Governance & Credentials Provisioning Console."""
-    admin_file = os.path.join(TEMPLATES_DIR, "admin.html")
-    if os.path.exists(admin_file):
-        with open(admin_file, "r", encoding="utf-8") as f:
+    path = find_template("admin.html")
+    if path and os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
             return f.read()
     return "<h1>Ma Maison Admin Console - Initializing...</h1>"
 
