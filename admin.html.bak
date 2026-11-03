@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin User Governance & Credentials Provisioning | Ma Maison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      /* Clean Executive Luxury Light Theme — Crisp Pearl Slate & Deep Royal Amethyst */
+      --ocean-deep: #f8fafc;
+      --ocean-navy: #ffffff;
+      --ocean-surface: #ffffff;
+      --ocean-card: #ffffff;
+      --ocean-elevated: #f1f5f9;
+      
+      --port-orange: #0f172a;
+      --port-orange-hover: #1e293b;
+      --port-amber: #d97706;
+      
+      --sea-cyan: #334155;
+      --sea-blue: #0f172a;
+      
+      --cargo-green: #059669;
+      --cargo-red: #dc2626;
+      --amber-warning: #d97706;
+      --gold-primary: #0f172a;
+      --gold-hover: #1e293b;
+      
+      --border-steel: #e2e8f0;
+      --border-orange: #cbd5e1;
+      --border-cyan: #cbd5e1;
+      
+      --text-white: #0f172a;
+      --text-light: #1e293b;
+      --text-muted: #64748b;
+      
+      --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--ocean-deep);
+      color: var(--text-light);
+      line-height: 1.55;
+      padding-bottom: 5rem;
+    }
+
+    /* Top Admin Bar */
+    header {
+      background: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-steel);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .admin-logo-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+    }
+
+    .admin-title h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .admin-title p {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--sea-cyan);
+      font-weight: 700;
+    }
+
+    .header-nav-btns {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 0.55rem 1.15rem;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn-gold, .btn-orange {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(107, 33, 168, 0.25);
+    }
+    .btn-gold:hover, .btn-orange:hover {
+      background: linear-gradient(135deg, #334155, #1e293b);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-steel);
+      color: var(--text-light);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-danger {
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.4);
+      color: #fda4af;
+    }
+    .btn-danger:hover {
+      background: rgba(244, 63, 94, 0.25);
+    }
+
+    .btn-success {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #6ee7b7;
+    }
+    .btn-success:hover {
+      background: rgba(16, 185, 129, 0.3);
+    }
+
+    /* Main Container */
+    .admin-main {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    /* Pending Alert Banner */
+    .pending-alert-banner {
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));
+      border: 1px solid var(--amber-warning);
+      border-radius: 12px;
+      padding: 1rem 1.4rem;
+      margin-bottom: 2rem;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+    }
+
+    .banner-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: #fde68a;
+    }
+
+    .banner-text i {
+      font-size: 1.3rem;
+      color: var(--amber-warning);
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Stats Grid */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-card {
+      background: var(--ocean-surface);
+      border: 1px solid var(--border-steel);
+      border-radius: 14px;
+      padding: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      border-color: var(--port-orange);
+    }
+
+    .stat-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .stat-info .stat-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.1;
+    }
+
+    .stat-info .stat-label {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* Layout Columns */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .card {
+      background: var(--ocean-surface);
+      border: 1px solid var(--border-steel);
+      border-radius: 16px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+      position: relative;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-steel);
+    }
+
+    .card-header h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-header h3 i {
+      color: var(--port-orange);
+    }
+
+    /* Form Controls */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      background: #ffffff;
+      border: 1px solid var(--border-steel);
+      border-radius: 8px;
+      color: #0f172a;
+      font-size: 0.88rem;
+      font-family: inherit;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--port-orange);
+      box-shadow: 0 0 0 2px rgba(107, 33, 168, 0.15);
+    }
+
+    /* Tables */
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.8px;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-steel);
+    }
+
+    td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid #f1f5f9;
+      color: #e2e8f0;
+      vertical-align: middle;
+    }
+
+    tr:hover td {
+      background: #f8fafc;
+    }
+
+    /* Badges */
+    .pwd-cell-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f8fafc;
+      border: 1px solid var(--border-orange);
+      padding: 3px 8px;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+    .pwd-cell-box:hover {
+      border-color: var(--port-orange);
+    }
+    .pwd-display {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: #0f172a;
+      letter-spacing: 0.5px;
+    }
+    .btn-icon-subtle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      transition: var(--transition);
+    }
+    .btn-icon-subtle:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .role-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .role-admin { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .role-manager { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; }
+    .role-merchandiser { background: rgba(124, 58, 237, 0.2); color: #0f172a; border: 1px solid rgba(124, 58, 237, 0.4); }
+    .role-qa { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+    .branch-badge {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .branch-delhi { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; }
+    .branch-jammu { background: rgba(192, 132, 252, 0.18); color: #0f172a; border: 1px solid var(--sea-cyan); }
+
+    .status-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 20px;
+    }
+    .status-active { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+    .status-pending { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+    .status-suspended { background: rgba(244, 63, 94, 0.15); color: #f87171; }
+
+    /* Credentials Card Box */
+    .cred-share-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px dashed var(--gold-primary);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-top: 1.2rem;
+      display: none;
+    }
+
+    .cred-share-box pre {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.82rem;
+      color: #f1f5f9;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+
+    /* Modal for Reset Password */
+    .modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-backdrop.active { display: flex; }
+    .modal-box {
+      background: #0f172a;
+      border: 1px solid var(--gold-primary);
+      border-radius: 16px;
+      max-width: 440px;
+      width: 100%;
+      padding: 2rem;
+    }
+
+    @media (max-width: 1024px) {
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Admin Header Bar -->
+  <header>
+    <div class="header-container">
+      <a href="/" class="admin-brand">
+        <div class="admin-logo-badge">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <div class="admin-title">
+          <h1>Ma <span>Maison</span> Admin</h1>
+          <p>User Governance & Credentials Provisioning</p>
+        </div>
+      </a>
+
+      <div class="header-nav-btns">
+        <a href="/" class="btn btn-outline"><i class="fa-solid fa-house"></i> Home Page</a>
+        <a href="/portal" class="btn btn-gold"><i class="fa-solid fa-chart-pie"></i> Executive BI Suite</a>
+        <button onclick="loadAdminData()" class="btn btn-outline" title="Refresh data"><i class="fa-solid fa-rotate"></i></button>
+        <button onclick="handleAdminLogout()" class="btn btn-outline" style="color: #f87171;"><i class="fa-solid fa-power-off"></i> Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- Attention Banner for Pending Approvals -->
+    <div id="pendingAlertBanner" class="pending-alert-banner">
+      <div class="banner-text">
+        <i class="fa-solid fa-bell"></i>
+        <div>
+          <strong>Pending Approval Requests:</strong> <span id="bannerPendingCount">0</span> employee(s) have requested login access. Review and issue credentials below.
+        </div>
+      </div>
+      <a href="#pendingSection" class="btn btn-gold" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Review Requests &darr;</a>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-icon" style="background: rgba(212, 175, 55, 0.15); color: var(--gold-primary);">
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-num" id="statTotalUsers">0</div>
+          <div class="stat-label">Total System Users</div>
+        </div>
+      </div>
+
+      <div class="stat-card" style="border-color: rgba(245, 158, 11, 0.4);">
+        <div class="stat-icon" style="background: rgba(245, 158, 11, 0.15); color: var(--amber-warning);">
+          <i class="fa-solid fa-user-clock"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-num" id="statPendingApprovals" style="color: var(--amber-warning);">0</div>
+          <div class="stat-label">Pending Admin Approvals</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--emerald-green);">
+          <i class="fa-solid fa-user-check"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-num" id="statActiveUsers">0</div>
+          <div class="stat-label">Active Team Members</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: rgba(56, 189, 248, 0.15); color: var(--blue-accent);">
+          <i class="fa-solid fa-key"></i>
+        </div>
+        <div class="stat-info">
+          <div class="stat-num" id="statPendingResets">0</div>
+          <div class="stat-label">Password Reset Tickets</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: PENDING APPROVAL REQUESTS QUEUE -->
+    <div id="pendingSection" class="card" style="margin-bottom: 2.5rem;">
+      <div class="card-header">
+        <h3><i class="fa-solid fa-user-clock" style="color: var(--amber-warning);"></i> Pending Employee Account Requests (Needs Admin Approval)</h3>
+        <span class="role-badge" id="badgePendingCount" style="background: rgba(245, 158, 11, 0.2); color: var(--amber-warning);">0 Requests</span>
+      </div>
+
+      <div id="noPendingNotice" style="display: none; padding: 2.5rem; text-align: center; color: var(--text-muted);">
+        <i class="fa-solid fa-check-circle" style="font-size: 2.5rem; color: var(--emerald-green); margin-bottom: 0.8rem;"></i>
+        <p>No pending account approval requests. All users have been processed.</p>
+      </div>
+
+      <div class="table-responsive" id="pendingTableWrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Full Name / Username</th>
+              <th>Requested Password</th>
+              <th>Branch Location</th>
+              <th>Department</th>
+              <th>Email & Contact</th>
+              <th>Requested On</th>
+              <th>Assign Role & Action</th>
+            </tr>
+          </thead>
+          <tbody id="pendingUsersTableBody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION 2 & 3: DIRECT PROVISION & PASSWORD RESETS IN 2 COLUMNS -->
+    <div class="grid-2col">
+      <!-- Direct Provision New Colleague -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-user-plus"></i> Direct Provision Employee Credentials</h3>
+          <span style="font-size: 0.75rem; color: var(--gold-light); font-weight: 600;">Delhi & Jammu Staff</span>
+        </div>
+
+        <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+          Admin can directly generate ID and Password for new colleagues. After creating, you can copy the credentials to share via WhatsApp or Email.
+        </p>
+
+        <form id="provisionForm" onsubmit="handleProvisionSubmit(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="provFullName" class="form-control" placeholder="e.g. Rakesh Sharma" required>
+            </div>
+            <div class="form-group">
+              <label>Login Username</label>
+              <input type="text" id="provUsername" class="form-control" placeholder="e.g. rakesh.s" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: flex-end;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label>Password</label>
+              <input type="text" id="provPassword" class="form-control" placeholder="Enter or generate" required>
+            </div>
+            <button type="button" onclick="generateRandomPassword()" class="btn btn-outline" style="height: 38px;" title="Generate Password">
+              <i class="fa-solid fa-dice"></i> Generate
+            </button>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 1rem;">
+            <div class="form-group">
+              <label>Office Branch</label>
+              <select id="provBranch" class="form-control" required>
+                <option value="Delhi HQ">Delhi Corporate HQ</option>
+                <option value="Jammu Office">Jammu Regional Hub</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Assigned Role</label>
+              <select id="provRole" class="form-control" required>
+                <option value="merchandiser">Merchandiser</option>
+                <option value="manager">Merchandising Manager</option>
+                <option value="qa_auditor">QA & Inspection Auditor</option>
+                <option value="logistics">Logistics Specialist</option>
+                <option value="admin">Administrator</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="form-group">
+              <label>Official Email</label>
+              <input type="email" id="provEmail" class="form-control" placeholder="name@mamaison.in" required>
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp</label>
+              <input type="text" id="provPhone" class="form-control" placeholder="+91 98765 43210">
+            </div>
+          </div>
+
+          <button type="submit" id="btnProvisionSubmit" class="btn btn-gold" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+            <i class="fa-solid fa-bolt"></i> Create & Activate Credentials
+          </button>
+        </form>
+
+        <!-- Shareable Credentials Card -->
+        <div id="credShareBox" class="cred-share-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--gold-light); text-transform: uppercase;">
+              <i class="fa-solid fa-clipboard-check"></i> Ready to Share with Colleague
+            </span>
+            <button onclick="copyCredentials()" class="btn btn-gold" style="padding: 0.35rem 0.75rem; font-size: 0.76rem;">
+              <i class="fa-solid fa-copy"></i> Copy for WhatsApp
+            </button>
+          </div>
+          <pre id="credShareText"></pre>
+        </div>
+      </div>
+
+      <!-- Password Reset Requests -->
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fa-solid fa-key" style="color: var(--blue-accent);"></i> Password Reset Tickets</h3>
+          <span style="font-size: 0.75rem; color: var(--text-muted);">Employee Requests</span>
+        </div>
+
+        <div id="noResetsNotice" style="display: none; padding: 2rem; text-align: center; color: var(--text-muted);">
+          <i class="fa-solid fa-shield-check" style="font-size: 2rem; color: var(--blue-accent); margin-bottom: 0.6rem;"></i>
+          <p>No pending password reset requests.</p>
+        </div>
+
+        <div class="table-responsive" id="resetsTableWrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Branch</th>
+                <th>Notes</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="resetsTableBody">
+              <!-- Populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: COMPLETE EMPLOYEE ROSTER -->
+    <div class="card" style="margin-bottom: 2.5rem;">
+      <div class="card-header">
+        <div>
+          <h3><i class="fa-solid fa-address-book"></i> Active Company Roster & Access Controls</h3>
+          <span style="font-size: 0.8rem; color: var(--text-muted);"><span id="rosterCount">0</span> Registered Users • Admin ID & Password View Enabled</span>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button id="btnToggleAllPasswords" onclick="toggleAllPasswords()" class="btn btn-gold" style="padding: 0.45rem 1rem; font-size: 0.82rem;">
+            <i class="fa-solid fa-eye" id="btnAllEyesIcon"></i> <span id="btnAllEyesText">Show All Passwords</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Full Name / Username</th>
+              <th>Login Password</th>
+              <th>Role</th>
+              <th>Branch Hub</th>
+              <th>Department</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="rosterTableBody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SECTION 5: SYSTEM AUDIT TRAIL -->
+    <div class="card">
+      <div class="card-header">
+        <h3><i class="fa-solid fa-shield-halved"></i> Live Security & Activity Audit Trail</h3>
+        <span style="font-size: 0.75rem; color: var(--emerald-green);"><i class="fa-solid fa-circle"></i> Real-time Logger</span>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>User</th>
+              <th>Action</th>
+              <th>Audit Details</th>
+            </tr>
+          </thead>
+          <tbody id="auditTableBody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL: RESET PASSWORD DIRECTLY -->
+  <div class="modal-backdrop" id="resetModalBackdrop">
+    <div class="modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem;">
+        <h4 style="font-size: 1.15rem; color: #0f172a;"><i class="fa-solid fa-key" style="color: var(--gold-primary);"></i> Reset User Password</h4>
+        <button onclick="closeResetModal()" style="background: none; border: none; color: #cbd5e1; font-size: 1.2rem; cursor: pointer;">&times;</button>
+      </div>
+
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+        Setting new password for user: <strong id="resetTargetUsername" style="color: var(--gold-light);"></strong>
+      </p>
+
+      <form onsubmit="handleDirectResetSubmit(event)">
+        <input type="hidden" id="resetTargetUserId">
+        <input type="hidden" id="resetTargetTicketId">
+        
+        <div class="form-group">
+          <label>New Password</label>
+          <input type="text" id="resetNewPassword" class="form-control" required>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 1.5rem;">
+          <button type="button" onclick="closeResetModal()" class="btn btn-outline">Cancel</button>
+          <button type="submit" class="btn btn-gold">Update Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let cachedAdminData = null;
+
+    // --- Verify Admin Session on Load ---
+    async function initAdminAuth() {
+      try {
+        const res = await fetch('/api/auth/me');
+        const data = await res.json();
+        if (!data.authenticated || data.user.role !== 'admin') {
+          alert('Admin access required. Please login with an administrator account.');
+          window.location.href = '/';
+          return;
+        }
+        loadAdminData();
+      } catch (err) {
+        window.location.href = '/';
+      }
+    }
+    initAdminAuth();
+
+    // --- Load Admin Overview Data ---
+    async function loadAdminData() {
+      try {
+        const res = await fetch('/api/admin/overview');
+        if (!res.ok) {
+          throw new Error('Failed to load admin data');
+        }
+        const data = await res.json();
+        cachedAdminData = data;
+        renderAdminUI(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function renderAdminUI(data) {
+      const stats = data.stats;
+      document.getElementById('statTotalUsers').textContent = stats.total_users;
+      document.getElementById('statPendingApprovals').textContent = stats.pending_approvals;
+      document.getElementById('statActiveUsers').textContent = stats.active_users;
+      document.getElementById('statPendingResets').textContent = stats.pending_resets;
+      document.getElementById('badgePendingCount').textContent = `${stats.pending_approvals} Requests`;
+      document.getElementById('rosterCount').textContent = data.all_users.length;
+
+      // Pending Banner
+      const banner = document.getElementById('pendingAlertBanner');
+      if (stats.pending_approvals > 0) {
+        banner.style.display = 'flex';
+        document.getElementById('bannerPendingCount').textContent = stats.pending_approvals;
+      } else {
+        banner.style.display = 'none';
+      }
+
+      // 1. Render Pending Approvals Table
+      const pendingTbody = document.getElementById('pendingUsersTableBody');
+      pendingTbody.innerHTML = '';
+      if (data.pending_users.length === 0) {
+        document.getElementById('noPendingNotice').style.display = 'block';
+        document.getElementById('pendingTableWrapper').style.display = 'none';
+      } else {
+        document.getElementById('noPendingNotice').style.display = 'none';
+        document.getElementById('pendingTableWrapper').style.display = 'block';
+
+        data.pending_users.forEach(u => {
+          const tr = document.createElement('tr');
+          const branchClass = (u.branch && u.branch.includes('Jammu')) ? 'branch-jammu' : 'branch-delhi';
+          const reqPwd = u.plain_password || '********';
+          tr.innerHTML = `
+            <td>
+              <div style="font-weight: 700; color: #0f172a;">${u.full_name}</div>
+              <div style="font-size: 0.78rem; color: var(--gold-light);">@${u.username}</div>
+            </td>
+            <td>
+              <div class="pwd-cell-box">
+                <code class="pwd-display">${reqPwd}</code>
+                <button onclick="copySinglePassword('${reqPwd}', '${u.username}')" class="btn-icon-subtle" style="color: var(--gold-primary);" title="Copy Requested Password">
+                  <i class="fa-solid fa-copy"></i>
+                </button>
+              </div>
+            </td>
+            <td><span class="branch-badge ${branchClass}"><i class="fa-solid fa-location-dot"></i> ${u.branch || 'Delhi HQ'}</span></td>
+            <td>${u.department || 'Merchandising'}</td>
+            <td>
+              <div>${u.email}</div>
+              <div style="font-size: 0.76rem; color: var(--text-muted);">${u.phone || 'No phone'}</div>
+            </td>
+            <td style="font-size: 0.8rem; color: var(--text-muted);">${u.requested_at || 'Recently'}</td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <select id="roleSelect_${u.id}" class="form-control" style="width: auto; padding: 0.35rem 0.6rem; font-size: 0.78rem;">
+                  <option value="merchandiser">Merchandiser</option>
+                  <option value="manager">Manager</option>
+                  <option value="qa_auditor">QA Auditor</option>
+                  <option value="logistics">Logistics</option>
+                  <option value="admin">Admin</option>
+                </select>
+                <button onclick="approveUser(${u.id}, '${u.branch || 'Delhi HQ'}', '${u.department || 'Merchandising'}')" class="btn btn-success" style="padding: 0.35rem 0.75rem; font-size: 0.76rem;">
+                  <i class="fa-solid fa-check"></i> Approve
+                </button>
+                <button onclick="rejectUser(${u.id})" class="btn btn-danger" style="padding: 0.35rem 0.65rem; font-size: 0.76rem;" title="Reject">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </td>
+          `;
+          pendingTbody.appendChild(tr);
+        });
+      }
+
+      // 2. Render Roster Table
+      const rosterTbody = document.getElementById('rosterTableBody');
+      rosterTbody.innerHTML = '';
+      data.all_users.forEach(u => {
+        const tr = document.createElement('tr');
+        const roleClass = `role-${u.role === 'admin' ? 'admin' : (u.role === 'manager' ? 'manager' : 'merchandiser')}`;
+        const branchClass = (u.branch && u.branch.includes('Jammu')) ? 'branch-jammu' : 'branch-delhi';
+        const statusClass = u.status === 'active' ? 'status-active' : (u.status === 'pending' ? 'status-pending' : 'status-suspended');
+        const pwd = u.plain_password || '********';
+
+        tr.innerHTML = `
+          <td style="color: var(--text-muted); font-size: 0.78rem;">#${u.id}</td>
+          <td>
+            <div style="display:flex; align-items:center; gap:10px;">
+              ${u.avatar ? `<img src="${u.avatar}" style="width:36px; height:36px; border-radius:50%; object-fit:cover; border:2px solid #0f172a; box-shadow:0 1px 4px rgba(124,58,237,0.25);">` : `<div style="width:34px; height:34px; border-radius:50%; background:#0f172a; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700;">${u.full_name.charAt(0)}</div>`}
+              <div>
+                <div style="font-weight: 700; color: #0f172a;">${u.full_name} ${u.role === 'admin' ? '<span style="background:#0f172a; color:#fff; font-size:9.5px; font-weight:800; padding:1px 5px; border-radius:4px; margin-left:4px;">ADMIN</span>' : ''}</div>
+                <div style="font-size: 0.78rem; color: #0f172a; font-weight:600;">@${u.username}</div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="pwd-cell-box">
+              <code class="pwd-display" id="pwd_val_${u.id}" data-real-pwd="${pwd}">${showAllPasswordsState ? pwd : '••••••••'}</code>
+              <button onclick="toggleSinglePassword(${u.id})" class="btn-icon-subtle" title="Show/Hide Password">
+                <i class="fa-solid ${showAllPasswordsState ? 'fa-eye-slash' : 'fa-eye'}" id="eye_icon_${u.id}"></i>
+              </button>
+              <button onclick="copySinglePassword('${pwd}', '${u.username}')" class="btn-icon-subtle" style="color: var(--gold-primary);" title="Copy Password">
+                <i class="fa-solid fa-copy"></i>
+              </button>
+            </div>
+          </td>
+          <td><span class="role-badge ${roleClass}">${u.role}</span></td>
+          <td><span class="branch-badge ${branchClass}">${u.branch || 'Delhi HQ'}</span></td>
+          <td>${u.department || 'Merchandising'}</td>
+          <td style="font-size: 0.82rem;">${u.email}</td>
+          <td><span class="status-badge ${statusClass}">${u.status.toUpperCase()}</span></td>
+          <td>
+            <div style="display: flex; gap: 6px;">
+              <button onclick="copyFullCredentials('${u.username}', '${pwd}', '${u.full_name}', '${u.branch || 'Delhi HQ'}', '${u.role}')" class="btn btn-gold" style="padding: 0.3rem 0.6rem; font-size: 0.74rem;" title="Copy Full ID & Password for WhatsApp">
+                <i class="fa-solid fa-share-nodes"></i>
+              </button>
+              <button onclick="openResetModal(${u.id}, '${u.username}')" class="btn btn-outline" style="padding: 0.3rem 0.6rem; font-size: 0.74rem;" title="Reset Password">
+                <i class="fa-solid fa-key"></i>
+              </button>
+              ${u.username !== 'admin' ? `
+                <button onclick="toggleUserStatus(${u.id}, '${u.status === 'active' ? 'suspended' : 'active'}')" class="btn btn-outline" style="padding: 0.3rem 0.6rem; font-size: 0.74rem;" title="${u.status === 'active' ? 'Suspend User' : 'Activate User'}">
+                  <i class="fa-solid ${u.status === 'active' ? 'fa-pause' : 'fa-play'}"></i>
+                </button>
+                <button onclick="deleteUser(${u.id}, '${u.username}')" class="btn btn-danger" style="padding: 0.3rem 0.6rem; font-size: 0.74rem;" title="Delete User">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              ` : '<span style="font-size: 0.72rem; color: var(--gold-primary); font-weight: 700;">PRIMARY</span>'}
+            </div>
+          </td>
+        `;
+        rosterTbody.appendChild(tr);
+      });
+
+      // 3. Render Resets Table
+      const resetsTbody = document.getElementById('resetsTableBody');
+      resetsTbody.innerHTML = '';
+      const pendingResets = data.resets.filter(r => r.status === 'pending');
+      if (pendingResets.length === 0) {
+        document.getElementById('noResetsNotice').style.display = 'block';
+        document.getElementById('resetsTableWrapper').style.display = 'none';
+      } else {
+        document.getElementById('noResetsNotice').style.display = 'none';
+        document.getElementById('resetsTableWrapper').style.display = 'block';
+
+        pendingResets.forEach(r => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>
+              <div style="font-weight: 600; color: #0f172a;">${r.full_name || r.username}</div>
+              <div style="font-size: 0.75rem; color: var(--gold-light);">@${r.username}</div>
+            </td>
+            <td><span class="branch-badge branch-delhi">${r.branch || 'Delhi HQ'}</span></td>
+            <td style="font-size: 0.78rem; color: var(--text-muted);">${r.notes || 'Forgot password'}</td>
+            <td>
+              <button onclick="openResetModal(${r.user_id}, '${r.username}', ${r.id})" class="btn btn-gold" style="padding: 0.3rem 0.6rem; font-size: 0.74rem;">
+                <i class="fa-solid fa-key"></i> Set Password
+              </button>
+            </td>
+          `;
+          resetsTbody.appendChild(tr);
+        });
+      }
+
+      // 4. Render Audit Trail
+      const auditTbody = document.getElementById('auditTableBody');
+      auditTbody.innerHTML = '';
+      data.logs.forEach(l => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="font-size: 0.78rem; color: var(--text-muted);">${l.timestamp}</td>
+          <td style="font-weight: 600; color: var(--gold-light);">@${l.username}</td>
+          <td><span style="font-size: 0.74rem; font-weight: 700; color: var(--blue-accent);">${l.action}</span></td>
+          <td style="font-size: 0.82rem; color: #cbd5e1;">${l.details}</td>
+        `;
+        auditTbody.appendChild(tr);
+      });
+    }
+
+    // --- Action: Approve Pending User ---
+    async function approveUser(userId, branch, department) {
+      const roleSelect = document.getElementById(`roleSelect_${userId}`);
+      const role = roleSelect ? roleSelect.value : 'merchandiser';
+
+      try {
+        const res = await fetch('/api/admin/approve-user', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_id: userId, role, branch, department })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Approval failed');
+        alert('✅ ' + data.message);
+        loadAdminData();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+
+    // --- Action: Reject User ---
+    async function rejectUser(userId) {
+      if (!confirm('Are you sure you want to reject and remove this account request?')) return;
+      try {
+        const res = await fetch('/api/admin/reject-user', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_id: userId })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Rejection failed');
+        loadAdminData();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+
+    // --- Action: Direct Provision User ---
+    async function handleProvisionSubmit(e) {
+      e.preventDefault();
+      const payload = {
+        full_name: document.getElementById('provFullName').value.trim(),
+        username: document.getElementById('provUsername').value.trim(),
+        password: document.getElementById('provPassword').value.trim(),
+        branch: document.getElementById('provBranch').value,
+        role: document.getElementById('provRole').value,
+        email: document.getElementById('provEmail').value.trim(),
+        phone: document.getElementById('provPhone').value.trim(),
+        department: document.getElementById('provBranch').value.includes('Jammu') ? 'Logistics & QA' : 'Merchandising'
+      };
+
+      try {
+        const res = await fetch('/api/admin/create-user', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Provisioning failed');
+
+        // Show credentials box
+        const shareBox = document.getElementById('credShareBox');
+        const shareText = document.getElementById('credShareText');
+        const formatted = 
+`🏢 MA MAISON EXPORT — EMPLOYEE PORTAL ACCESS
+--------------------------------------------------------
+Hello ${payload.full_name},
+Your official company login credentials have been issued by Admin:
+
+• Portal URL: ${window.location.origin}/
+• Username:   ${payload.username}
+• Password:   ${payload.password}
+• Role:       ${payload.role.toUpperCase()}
+• Branch Hub: ${payload.branch}
+--------------------------------------------------------
+Please keep your credentials confidential. You can access the Executive BI Suite at the portal URL above.`;
+
+        shareText.textContent = formatted;
+        shareBox.style.display = 'block';
+
+        alert('✅ Employee credentials provisioned successfully! You can copy the message below to send to your colleague.');
+        document.getElementById('provisionForm').reset();
+        loadAdminData();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+
+    function generateRandomPassword() {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789@#$';
+      let pwd = 'MM@';
+      for (let i = 0; i < 6; i++) {
+        pwd += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById('provPassword').value = pwd;
+    }
+
+    function copyCredentials() {
+      const txt = document.getElementById('credShareText').textContent;
+      navigator.clipboard.writeText(txt).then(() => {
+        alert('📋 Credentials copied to clipboard! You can now paste into WhatsApp or Email for your colleague.');
+      });
+    }
+
+    // --- Action: Reset Password Modal ---
+    function openResetModal(userId, username, ticketId = null) {
+      document.getElementById('resetTargetUserId').value = userId;
+      document.getElementById('resetTargetTicketId').value = ticketId || '';
+      document.getElementById('resetTargetUsername').textContent = username;
+      document.getElementById('resetNewPassword').value = 'MM@' + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('resetModalBackdrop').classList.add('active');
+    }
+
+    function closeResetModal() {
+      document.getElementById('resetModalBackdrop').classList.remove('active');
+    }
+
+    async function handleDirectResetSubmit(e) {
+      e.preventDefault();
+      const userId = parseInt(document.getElementById('resetTargetUserId').value);
+      const ticketId = document.getElementById('resetTargetTicketId').value ? parseInt(document.getElementById('resetTargetTicketId').value) : null;
+      const newPassword = document.getElementById('resetNewPassword').value.trim();
+
+      try {
+        const res = await fetch('/api/admin/reset-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_id: userId, new_password: newPassword, reset_request_id: ticketId })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Reset failed');
+        alert('✅ Password updated successfully! New password: ' + newPassword);
+        closeResetModal();
+        loadAdminData();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+
+    // --- Action: Toggle Status ---
+    async function toggleUserStatus(userId, newStatus) {
+      try {
+        const res = await fetch('/api/admin/toggle-status', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_id: userId, status: newStatus })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Failed to update status');
+        loadAdminData();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+
+    // --- Action: Delete User ---
+    async function deleteUser(userId, username) {
+      if (!confirm(`Are you sure you want to permanently delete user @${username}?`)) return;
+      try {
+        const res = await fetch(`/api/admin/users/${userId}`, { method: 'DELETE' });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.detail || 'Delete failed');
+        loadAdminData();
+      } catch (err) {
+        alert('Error: ' + err.message);
+      }
+    }
+
+    // --- Password Visibility & Copy Controls for Admin ---
+    let showAllPasswordsState = false;
+
+    function toggleAllPasswords() {
+      showAllPasswordsState = !showAllPasswordsState;
+      const btnIcon = document.getElementById('btnAllEyesIcon');
+      const btnText = document.getElementById('btnAllEyesText');
+
+      if (showAllPasswordsState) {
+        btnIcon.className = 'fa-solid fa-eye-slash';
+        btnText.textContent = 'Hide All Passwords';
+        document.querySelectorAll('.pwd-display').forEach(el => {
+          if (el.hasAttribute('data-real-pwd')) {
+            el.textContent = el.getAttribute('data-real-pwd');
+          }
+        });
+        document.querySelectorAll('[id^="eye_icon_"]').forEach(el => {
+          el.className = 'fa-solid fa-eye-slash';
+        });
+      } else {
+        btnIcon.className = 'fa-solid fa-eye';
+        btnText.textContent = 'Show All Passwords';
+        document.querySelectorAll('.pwd-display').forEach(el => {
+          if (el.hasAttribute('data-real-pwd')) {
+            el.textContent = '••••••••';
+          }
+        });
+        document.querySelectorAll('[id^="eye_icon_"]').forEach(el => {
+          el.className = 'fa-solid fa-eye';
+        });
+      }
+    }
+
+    function toggleSinglePassword(userId) {
+      const pwdEl = document.getElementById(`pwd_val_${userId}`);
+      const eyeIcon = document.getElementById(`eye_icon_${userId}`);
+      const realPwd = pwdEl.getAttribute('data-real-pwd');
+
+      if (pwdEl.textContent === '••••••••') {
+        pwdEl.textContent = realPwd;
+        eyeIcon.className = 'fa-solid fa-eye-slash';
+      } else {
+        pwdEl.textContent = '••••••••';
+        eyeIcon.className = 'fa-solid fa-eye';
+      }
+    }
+
+    function copySinglePassword(password, username) {
+      navigator.clipboard.writeText(password).then(() => {
+        alert(`📋 Password for @${username} copied to clipboard: ${password}`);
+      });
+    }
+
+    function copyFullCredentials(username, password, fullName, branch, role) {
+      const formatted = 
+`🏢 MA MAISON EXPORT — EMPLOYEE PORTAL ACCESS
+--------------------------------------------------------
+Hello ${fullName},
+Your official company login credentials:
+
+• Portal URL: ${window.location.origin}/
+• Username:   ${username}
+• Password:   ${password}
+• Role:       ${role.toUpperCase()}
+• Branch Hub: ${branch}
+--------------------------------------------------------
+Please keep your credentials confidential.`;
+
+      navigator.clipboard.writeText(formatted).then(() => {
+        alert(`📋 Full credentials for ${fullName} (@${username}) copied to clipboard!\nYou can paste directly into WhatsApp or Email.`);
+      });
+    }
+
+    async function handleAdminLogout() {
+      await fetch('/api/auth/logout', { method: 'POST' });
+      localStorage.removeItem('ma_maison_token');
+      localStorage.removeItem('ma_maison_user');
+      window.location.href = '/';
+    }
+  </script>
+</body>
+</html>
+

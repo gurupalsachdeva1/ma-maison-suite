@@ -1,0 +1,3495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma Maison • EXECUTIVE BI SUITE</title>
+  <meta name="description" content="Ma Maison Executive BI Suite - Enterprise Merchandising, Vendor Management, Project Tracking and Daily Actions Kanban Board">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      /* Clean Executive Luxury Monochromatic Theme — Crisp Pearl Slate & Deep Charcoal Grey */
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f1f5f9;
+      --bg-input: #ffffff;
+      
+      --border-subtle: #e2e8f0;
+      --border-focus: #0f172a;
+      --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+      
+      --text-main: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      
+      --accent-purple: #0f172a;
+      --accent-purple-light: #334155;
+      --accent-purple-tint: #f1f5f9;
+      --accent-purple-vibrant: #1e293b;
+      --accent-indigo: #1e293b;
+      --accent-violet: #0f172a;
+      --accent-fuchsia: #334155;
+      
+      --accent-green: #059669;
+      --accent-amber: #d97706;
+      --accent-red: #dc2626;
+      
+      --pill-in-prog: #f1f5f9;
+      --pill-in-prog-txt: #0f172a;
+      --pill-done: #ecfdf5;
+      --pill-done-txt: #047857;
+      --pill-pending: #fffbeb;
+      --pill-pending-txt: #b45309;
+      --pill-hold: #fff1f2;
+      --pill-hold-txt: #be123c;
+      --pill-drop: #fef2f2;
+      --pill-drop-txt: #b91c1c;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header.top-header {
+      height: 72px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
+    }
+
+    .brand-text h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+
+    .brand-text span {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent-purple-light);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-action {
+      background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-action:hover {
+      background: #f1f5f9;
+      border-color: rgba(15, 23, 42, 0.4);
+    }
+
+    .btn-primary-purple {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border: 1px solid #334155;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
+    }
+
+    .btn-primary-purple:hover {
+      background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.35);
+    }
+
+    .lan-share-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+      padding: 6px 12px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .pulse-dot-green {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.5; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0.5; transform: scale(0.9); }
+    }
+
+    .user-profile-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .user-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* NAVIGATION BAR TABS */
+    nav.app-navbar {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-tab-btn {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-secondary);
+      padding: 14px 18px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-tab-btn:hover {
+      color: var(--text-main);
+    }
+
+    .nav-tab-btn.active {
+      color: var(--accent-purple);
+      border-bottom-color: var(--accent-purple);
+      font-weight: 800;
+    }
+
+    .tab-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      color: var(--text-secondary);
+    }
+
+    .nav-tab-btn.active .tab-badge {
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    /* MAIN CONTAINER */
+    main.content-area {
+      flex: 1;
+      padding: 16px 24px 60px 24px;
+      max-width: 100%;
+      margin: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      box-sizing: border-box;
+    }
+
+    /* VIEW SECTIONS */
+    .view-pane {
+      display: none;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .view-pane.active {
+      display: flex;
+    }
+
+    /* 5 TOP KPI CARDS */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 1280px) {
+      .kpi-row { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .kpi-row { grid-template-columns: 1fr; }
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: #cbd5e1; box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .kpi-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .kpi-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+    }
+
+    .kpi-icon {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .kpi-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+
+    .kpi-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .kpi-progress-bar {
+      height: 4px;
+      width: 100%;
+      background: #e2e8f0;
+      border-radius: 2px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .kpi-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #64748b, #0f172a);
+      border-radius: 2px;
+    }
+
+    /* DASHBOARD TWO-COLUMN VISUAL SECTION */
+    .dashboard-two-col {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .dashboard-two-col { grid-template-columns: 1fr; }
+    }
+
+    .panel-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-title {
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-main);
+    }
+
+    .workload-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .workload-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .workload-bar-wrap {
+      height: 8px;
+      width: 100%;
+      background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .workload-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #64748b, #1e293b);
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(15, 23, 42, 0.2);
+    }
+
+    .status-metric-card {
+      padding: 12px 18px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .metric-in-prog { background: rgba(15, 23, 42, 0.06); border: 1px solid rgba(15, 23, 42, 0.2); color: #0f172a; }
+    .metric-done { background: rgba(6, 78, 59, 0.35); border: 1px solid rgba(16, 185, 129, 0.3); color: #6ee7b7; }
+    .metric-pending { background: rgba(120, 53, 15, 0.35); border: 1px solid rgba(245, 158, 11, 0.3); color: #fde047; }
+    .metric-hold { background: rgba(67, 20, 7, 0.35); border: 1px solid rgba(249, 115, 22, 0.3); color: #fdba74; }
+    .metric-dropped { background: rgba(69, 10, 10, 0.35); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5; }
+
+    /* HIGH PRIORITY IMMEDIATE ACTIONS TICKER */
+    .actions-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .actions-grid-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .actions-grid-preview { grid-template-columns: 1fr; }
+    }
+
+    .action-card-preview {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .action-card-preview:hover {
+      border-color: #cbd5e1; box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .action-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .client-badge-pill {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(239, 68, 68, 0.18);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #f87171;
+    }
+
+    .action-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .action-desc {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+
+    .action-status-tag {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* GLOBAL SEARCH & QUERY BUILDER */
+    .query-builder-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .search-input-box {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 12px 18px;
+      color: #0f172a;
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input-box:focus {
+      border-color: var(--border-focus);
+    }
+
+    .query-dropdowns-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .query-dropdowns-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .query-select-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .query-select-group label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+    }
+
+    .query-select {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .cards-grid-3col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 1200px) {
+      .cards-grid-3col { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .cards-grid-3col { grid-template-columns: 1fr; }
+    }
+
+    .project-grid-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .project-grid-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-code-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      color: #0f172a;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .client-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .status-pill {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .status-pill.In-Progress { background: var(--pill-in-prog); color: var(--pill-in-prog-txt); }
+    .status-pill.Completed { background: var(--pill-done); color: var(--pill-done-txt); }
+    .status-pill.Pending-Approval { background: var(--pill-pending); color: var(--pill-pending-txt); }
+    .status-pill.On-Hold { background: var(--pill-hold); color: var(--pill-hold-txt); }
+    .status-pill.Dropped { background: var(--pill-drop); color: var(--pill-drop-txt); }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.4;
+    }
+
+    .project-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-secondary);
+      padding-top: 6px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .project-remarks-box {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* MASTER TRACKER TABLE */
+    .table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 22px;
+      overflow-x: auto;
+    }
+
+    .table-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .table-search-input {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      color: #0f172a;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      width: 240px;
+      outline: none;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      font-size: 13px;
+    }
+
+    table.data-table th {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #334155;
+      background: #f1f5f9;
+      padding: 10px 12px;
+      border: 1px solid #cbd5e1;
+      border-bottom: 2px solid #94a3b8;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 9px 12px;
+      border: 1px solid #e2e8f0;
+      font-size: 12.5px;
+      vertical-align: middle;
+      color: #1e293b;
+      white-space: nowrap;
+    }
+
+    /* Excel Zebra Striping (Alternating row shade) */
+    table.data-table tbody tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    table.data-table tbody tr:nth-child(odd) td {
+      background: #ffffff;
+    }
+
+    /* Excel Row Hover Highlight */
+    table.data-table tbody tr:hover td {
+      background: #eff6ff !important;
+    }
+
+    /* Selected Row Highlight */
+    table.data-table tbody tr.row-selected td {
+      background: #f1f5f9 !important;
+      border-color: #0f172a !important;
+    }
+
+    
+    /* Status KPI Summary Strip */
+    .status-summary-kpi-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .status-kpi-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .status-kpi-pill:hover {
+      border-color: #cbd5e1;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    .status-kpi-pill.active {
+      box-shadow: 0 0 0 2px #0f172a;
+      border-color: #0f172a !important;
+    }
+    .status-kpi-pill .kpi-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .status-kpi-pill .kpi-count {
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      background: #f1f5f9;
+      color: #334155;
+    }
+
+    .status-kpi-pill.kpi-in-prog.active { background: #f1f5f9; color: #0f172a; }
+    .status-kpi-pill.kpi-in-prog .kpi-count { background: #e2e8f0; color: #0f172a; }
+
+    .status-kpi-pill.kpi-completed.active { background: #f0fdf4; color: #166534; }
+    .status-kpi-pill.kpi-completed .kpi-count { background: #dcfce7; color: #166534; }
+
+    .status-kpi-pill.kpi-on-hold.active { background: #fef2f2; color: #991b1b; }
+    .status-kpi-pill.kpi-on-hold .kpi-count { background: #fee2e2; color: #991b1b; }
+
+    .status-kpi-pill.kpi-pending.active { background: #fffbeb; color: #92400e; }
+    .status-kpi-pill.kpi-pending .kpi-count { background: #fef3c7; color: #92400e; }
+
+    .status-kpi-pill.kpi-dropped.active { background: #f8fafc; color: #475569; }
+    .status-kpi-pill.kpi-dropped .kpi-count { background: #e2e8f0; color: #475569; }
+
+    /* Buyer Filter Buttons */
+    .buyer-filter-strip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .buyer-btn {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .buyer-btn:hover { background: #f1f5f9; border-color: #cbd5e1; }
+    .buyer-btn.active {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+
+    /* Header Round Avatar Badge (Matches User Reference Screenshots) */
+    .user-profile-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 14px 4px 6px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+    .user-profile-badge:hover {
+      border-color: #0f172a;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+    }
+    .user-avatar-wrap {
+      position: relative;
+      width: 38px;
+      height: 38px;
+    }
+    .user-avatar-round {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0f172a;
+      display: block;
+    }
+    .avatar-online-dot {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10b981;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 4px rgba(16, 185, 129, 0.5);
+    }
+    .user-profile-info {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      line-height: 1.15;
+    }
+    .user-profile-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .user-profile-role {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Executive Welcome Greeting Banner (Matches Screenshot 3) */
+    .welcome-executive-banner {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .welcome-avatar-img {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0f172a;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
+    }
+    .welcome-heading {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .welcome-subheading {
+      font-size: 12.5px;
+      color: #64748b;
+      margin: 4px 0 0 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .badge-admin-tag {
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Remarks 2-Line Subtext & Hover Audit Trail */
+    .remark-cell-wrapper {
+      max-width: 260px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background 0.15s;
+    }
+    .remark-cell-wrapper:hover {
+      background: rgba(15, 23, 42, 0.05);
+    }
+    .remark-text-line {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #1e293b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
+      line-height: 1.25;
+    }
+    .remark-date-subtext {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      line-height: 1;
+    }
+
+    /* Status-based Row Tinting */
+    table.data-table tbody tr.row-status-in-progress td {
+      background-color: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+    }
+    table.data-table tbody tr.row-status-completed td {
+      background-color: #f0fdf4 !important;
+      border-color: #dcfce7 !important;
+    }
+    table.data-table tbody tr.row-status-on-hold td {
+      background-color: #fef2f2 !important;
+      border-color: #fee2e2 !important;
+    }
+    table.data-table tbody tr.row-status-pending-approval td {
+      background-color: #fffbeb !important;
+      border-color: #fef3c7 !important;
+    }
+    table.data-table tbody tr.row-status-dropped td {
+      background-color: #f8fafc !important;
+      border-color: #e2e8f0 !important;
+    }
+
+    /* Hover effect on tinted rows */
+    table.data-table tbody tr.row-status-in-progress:hover td {
+      background-color: #f1f5f9 !important;
+    }
+    table.data-table tbody tr.row-status-completed:hover td {
+      background-color: #dcfce7 !important;
+    }
+    table.data-table tbody tr.row-status-on-hold:hover td {
+      background-color: #fee2e2 !important;
+    }
+    table.data-table tbody tr.row-status-pending-approval:hover td {
+      background-color: #fef3c7 !important;
+    }
+    table.data-table tbody tr.row-status-dropped:hover td {
+      background-color: #f1f5f9 !important;
+    }
+
+    /* Checked / Selected row override */
+    table.data-table tbody tr.row-selected td {
+      background-color: #f1f5f9 !important;
+      border-color: #0f172a !important;
+      box-shadow: inset 0 0 0 1px #0f172a;
+    }
+
+    /* Quick Status Inline Select */
+    .status-quick-select {
+      border: 1px solid transparent;
+      padding: 4px 8px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 800;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.15s;
+    }
+    .status-quick-select:hover {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border-color: rgba(0,0,0,0.15);
+    }
+    .status-quick-select:focus {
+      box-shadow: 0 0 0 2px #0f172a;
+    }
+
+    /* Pagination Bar */
+    .table-pagination-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      margin-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .pagination-info {
+      font-size: 12.5px;
+      color: #64748b;
+    }
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .pag-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 32px;
+      height: 32px;
+      padding: 0 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .pag-btn:hover:not(:disabled) {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+    .pag-btn.active {
+      background: #0f172a !important;
+      color: #ffffff !important;
+      border-color: #0f172a !important;
+    }
+    .pag-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      background: #f1f5f9;
+    }
+
+    /* Timestamp tag in remark */
+    .remark-ts-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      color: #0f172a;
+      font-weight: 700;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 1px 5px;
+      border-radius: 4px;
+      margin-right: 5px;
+    }
+
+    /* Single-line Remarks with Hover Full Read Tooltip */
+    .remark-cell-preview {
+      max-width: 220px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: help;
+      color: #475569;
+      font-size: 12px;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      border-bottom: 1px dotted transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .remark-cell-preview:hover {
+      color: #0f172a;
+      border-bottom-color: #0f172a;
+    }
+
+    .td-task-desc {
+      white-space: normal !important;
+      min-width: 200px;
+      max-width: 320px;
+      line-height: 1.35;
+      color: #1e293b;
+    }
+
+    .category-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: #e2e8f0;
+      color: var(--text-secondary);
+    }
+
+    .btn-table-action {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 13px;
+      padding: 4px;
+      transition: color 0.15s;
+    }
+
+    .btn-table-action:hover {
+      color: var(--text-main);
+    }
+
+    /* KANBAN BOARD */
+    .kanban-grid-4col {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    @media (max-width: 1200px) {
+      .kanban-grid-4col { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 650px) {
+      .kanban-grid-4col { grid-template-columns: 1fr; }
+    }
+
+    .kanban-column {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 480px;
+    }
+
+    .kanban-col-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .kanban-col-title {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .kanban-col-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: #f1f5f9;
+    }
+
+    .col-action-req .kanban-col-title { color: #f87171; }
+    .col-in-prog .kanban-col-title { color: #334155; }
+    .col-pending .kanban-col-title { color: #fbbf24; }
+    .col-done .kanban-col-title { color: #34d399; }
+
+    .kanban-cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .kanban-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .kanban-card:hover {
+      border-color: #cbd5e1; box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+
+    .priority-badge {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .priority-High { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+    .priority-Medium { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .priority-Low { background: rgba(148, 163, 184, 0.2); color: #94a3b8; }
+
+    .kanban-move-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+      padding-top: 6px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-move {
+      background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-move:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* VENDOR & CLIENT BI VIEW */
+    .bi-grid-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .bi-grid-two-col { grid-template-columns: 1fr; }
+    }
+
+    .vendor-stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 12px 14px;
+      background: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 10px;
+    }
+
+    .vendor-top-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .vendor-progress-wrap {
+      height: 6px;
+      width: 100%;
+      background: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .vendor-progress-fill {
+      height: 100%;
+      background: #10b981;
+      border-radius: 3px;
+    }
+
+    .client-account-card {
+      padding: 14px 16px;
+      background: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .client-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13.5px;
+      font-weight: 800;
+    }
+
+    .orders-count-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(15, 23, 42, 0.08);
+      color: #0f172a;
+    }
+
+    /* MODAL POPUPS */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-window {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
+    }
+
+    .modal-header {
+      padding: 18px 24px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-header h3 {
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-height: 75vh;
+      overflow-y: auto;
+    }
+
+    .form-row-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+    }
+
+    .form-input, .form-textarea, .form-select {
+      background: var(--bg-input);
+      border: 1px solid var(--border-subtle);
+      color: #0f172a;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    /* Interactive Editable Project Code Badge */
+    .code-badge-interactive {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #0f172a;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .code-badge-interactive:hover {
+      background: #e2e8f0;
+      border-color: #0f172a;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+      transform: translateY(-1px);
+    }
+    .code-pen-icon {
+      font-size: 9px;
+      color: #64748b;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+    .code-badge-interactive:hover .code-pen-icon {
+      opacity: 1;
+      color: #0f172a;
+    }
+    .inline-code-edit-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+    .inline-code-input {
+      width: 105px;
+      padding: 3px 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 800;
+      border: 2px solid #0f172a;
+      border-radius: 6px;
+      outline: none;
+      text-transform: uppercase;
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.15);
+    }
+    .btn-code-save {
+      background: #10b981;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 11px;
+      transition: background 0.15s;
+    }
+    .btn-code-save:hover { background: #059669; }
+    .btn-code-cancel {
+      background: #ef4444;
+      border: none;
+      color: #fff;
+      border-radius: 5px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 11px;
+      transition: background 0.15s;
+    }
+    .btn-code-cancel:hover { background: #dc2626; }
+    
+    /* Table Column Responsiveness */
+    table.data-table th, table.data-table td {
+      vertical-align: middle;
+    }
+
+    /* Floating Toast Notification */
+    .toast-notification {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      border-left: 4px solid #10b981;
+      animation: fadeInToast 0.25s ease;
+    }
+    @keyframes fadeInToast {
+      from { transform: translateY(15px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="top-header">
+    <div class="brand-group">
+      <div class="brand-logo">
+        <i class="fa-solid fa-ship"></i>
+      </div>
+      <div class="brand-text">
+        <h1>Ma Maison</h1>
+        <span>GLOBAL TEXTILE EXPORT BI</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <!-- LAN Share Pill for Office Colleagues -->
+      <div class="lan-share-badge" onclick="openShareModal()" title="Click to view Office Colleague Access Link">
+        <span class="pulse-dot-green"></span>
+        <span id="headerLanIp">LAN: Connecting...</span>
+        <i class="fa-solid fa-share-nodes" style="margin-left:4px;"></i>
+      </div>
+
+      <!-- Home & Admin Action Buttons -->
+      <a href="/" class="btn-action" title="Ma Maison Corporate Home">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+
+      <a href="/admin" id="btnAdminPanelNav" class="btn-action" style="display:none; background: rgba(212, 175, 55, 0.15); border-color: rgba(212, 175, 55, 0.4); color: #f3e5ab;" title="User Governance">
+        <i class="fa-solid fa-user-shield"></i>
+        <span>Admin Panel</span>
+      </a>
+
+      <!-- Action Buttons -->
+      <button class="btn-action btn-primary-purple" onclick="openCreateProjectModal()">
+        <i class="fa-solid fa-plus"></i>
+        <span>New Project</span>
+      </button>
+
+      <a href="/api/projects/export-csv" class="btn-action">
+        <i class="fa-solid fa-file-csv"></i>
+        <span>Export CSV</span>
+      </a>
+
+      <!-- User Profile Badge (Tawal Preet Singh - Manager Export House - Admin) -->
+      <div class="user-profile-badge" onclick="openUserModal()" title="Administrator: Tawal Preet Singh (Dehradun)">
+        <div class="user-avatar-wrap">
+          <img src="/static/img/admin_tawal_preet_singh.png" class="user-avatar-round" id="headerUserAvatarImg" alt="Tawal Preet Singh">
+          <span class="avatar-online-dot"></span>
+        </div>
+        <div class="user-profile-info">
+          <span class="user-profile-name" id="headerUserName">Tawal Preet Singh</span>
+          <span class="user-profile-role" id="headerUserRole">Manager Export House <i class="fa-solid fa-shield-check" style="color:#0f172a;"></i></span>
+        </div>
+        <i class="fa-solid fa-chevron-down" style="font-size:10px; color:#64748b; margin-left:2px;"></i>
+      </div>
+
+      <button onclick="logoutPortal()" class="btn-action" style="color: #f87171;" title="Logout">
+        <i class="fa-solid fa-power-off"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="app-navbar">
+    <button class="nav-tab-btn active" id="tabDashboard" onclick="switchView('dashboard')">
+      <i class="fa-solid fa-table-cells-large"></i>
+      <span>Dashboard</span>
+    </button>
+
+    <button class="nav-tab-btn" id="tabSearch" onclick="switchView('search')">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <span>Global Search</span>
+    </button>
+
+    <button class="nav-tab-btn" id="tabTracker" onclick="switchView('tracker')">
+      <i class="fa-solid fa-list-check"></i>
+      <span>Master Tracker</span>
+      <span class="tab-badge" id="badgeTrackerCount">14</span>
+    </button>
+
+    <button class="nav-tab-btn" id="tabActions" onclick="switchView('actions')">
+      <i class="fa-solid fa-chart-gantt"></i>
+      <span>Daily Actions</span>
+      <span class="tab-badge" id="badgeActionsCount">6</span>
+    </button>
+
+    <button class="nav-tab-btn" id="tabVendorBI" onclick="switchView('vendorBI')">
+      <i class="fa-solid fa-city"></i>
+      <span>Vendor & Client BI</span>
+    </button>
+  </nav>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="content-area">
+
+    <!-- ====================================================================
+         VIEW 1: DASHBOARD
+         ==================================================================== -->
+    <section class="view-pane active" id="viewDashboard">
+
+      <!-- Executive Welcome Greeting Banner (Matches User Screenshot) -->
+      <div class="welcome-executive-banner">
+        <div style="display:flex; align-items:center; gap:16px;">
+          <img src="/static/img/admin_tawal_preet_singh.png" class="welcome-avatar-img" alt="Tawal Preet Singh">
+          <div>
+            <h1 class="welcome-heading">Welcome Back, Tawal Preet Singh <span class="badge-admin-tag">ADMIN</span></h1>
+            <p class="welcome-subheading">
+              <span style="font-weight:700; color:#475569;"><i class="fa-solid fa-briefcase" style="color:#0f172a;"></i> Manager Export House</span>
+              <span>•</span>
+              <span style="font-weight:600; color:#475569;"><i class="fa-solid fa-location-dot" style="color:#ef4444;"></i> Dehradun, Uttarakhand, India</span>
+              <span>•</span>
+              <span style="color:#10b981; font-weight:700;"><i class="fa-solid fa-circle-check"></i> System Administrator Active</span>
+            </p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:10px;">
+          <a href="/admin" class="btn-action" style="background:#0f172a; color:#fff; border:none; padding:8px 16px; border-radius:8px; font-size:12.5px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px; box-shadow:0 2px 4px rgba(15,23,42,0.25);">
+            <i class="fa-solid fa-user-shield"></i>
+            <span>Admin Governance</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5 KPI Cards Row -->
+      <div class="kpi-row">
+        <!-- 1. Total Projects -->
+        <div class="kpi-card">
+          <div class="kpi-card-header">
+            <span class="kpi-title">TOTAL PROJECTS</span>
+            <i class="fa-solid fa-briefcase kpi-icon"></i>
+          </div>
+          <div class="kpi-number" id="dashTotalProjects">14</div>
+          <div class="kpi-subtitle">Active across 6 key accounts</div>
+        </div>
+
+        <!-- 2. In Progress -->
+        <div class="kpi-card">
+          <div class="kpi-card-header">
+            <span class="kpi-title">IN PROGRESS</span>
+            <i class="fa-regular fa-clock kpi-icon" style="color:var(--accent-purple);"></i>
+          </div>
+          <div class="kpi-number" id="dashInProgress">6</div>
+          <div class="kpi-subtitle">Active sampling & dev tasks</div>
+        </div>
+
+        <!-- 3. Pending Sign-Off -->
+        <div class="kpi-card">
+          <div class="kpi-card-header">
+            <span class="kpi-title">PENDING SIGN-OFF</span>
+            <i class="fa-solid fa-circle-exclamation kpi-icon" style="color:#fbbf24;"></i>
+          </div>
+          <div class="kpi-number" id="dashPending">2</div>
+          <div class="kpi-subtitle">Awaiting client / vendor action</div>
+        </div>
+
+        <!-- 4. Completed -->
+        <div class="kpi-card">
+          <div class="kpi-card-header">
+            <span class="kpi-title">COMPLETED</span>
+            <i class="fa-solid fa-circle-check kpi-icon" style="color:#34d399;"></i>
+          </div>
+          <div class="kpi-number" id="dashCompleted">4</div>
+          <div class="kpi-subtitle">Successfully delivered & audited</div>
+        </div>
+
+        <!-- 5. Completion Rate -->
+        <div class="kpi-card">
+          <div class="kpi-card-header">
+            <span class="kpi-title">COMPLETION RATE</span>
+            <i class="fa-solid fa-chart-pie kpi-icon" style="color:#0f172a;"></i>
+          </div>
+          <div class="kpi-number" id="dashCompletionRate">29%</div>
+          <div class="kpi-progress-bar">
+            <div class="kpi-progress-fill" id="dashRateBar" style="width: 29%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Two Column Visual Section -->
+      <div class="dashboard-two-col">
+        <!-- Left: Client Workload Distribution -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title">
+              <i class="fa-solid fa-chart-bar" style="color:var(--accent-purple);"></i>
+              <span>Client Workload Distribution</span>
+            </div>
+            <span style="font-size:11px; color:var(--text-muted); font-weight:700;">Projects Count</span>
+          </div>
+          <div id="dashClientWorkloadList" style="display:flex; flex-direction:column; gap:14px;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Right: Project Status Metrics -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title">
+              <i class="fa-regular fa-clock" style="color:#34d399;"></i>
+              <span>Project Status Metrics</span>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="status-metric-card metric-in-prog">
+              <span>In Progress</span>
+              <strong id="metricInProgCount">6</strong>
+            </div>
+            <div class="status-metric-card metric-done">
+              <span>Completed</span>
+              <strong id="metricDoneCount">4</strong>
+            </div>
+            <div class="status-metric-card metric-pending">
+              <span>Pending Approval</span>
+              <strong id="metricPendingCount">2</strong>
+            </div>
+            <div class="status-metric-card metric-hold">
+              <span>On Hold</span>
+              <strong id="metricHoldCount">1</strong>
+            </div>
+            <div class="status-metric-card metric-dropped">
+              <span>Dropped</span>
+              <strong id="metricDropCount">1</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- High Priority Immediate Actions Ticker -->
+      <div class="panel-card">
+        <div class="actions-panel-header">
+          <div class="panel-title" style="color:#f87171;">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span>High-Priority Immediate Actions</span>
+          </div>
+          <a href="#" onclick="switchView('actions')" style="color:var(--accent-purple-light); font-size:12px; font-weight:700; text-decoration:none;">
+            View All Actions →
+          </a>
+        </div>
+        <div class="actions-grid-preview" id="dashImmediateActionsList">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 2: GLOBAL SEARCH / MULTI-CRITERIA QUERY BUILDER
+         ==================================================================== -->
+    <section class="view-pane" id="viewSearch">
+      <div class="query-builder-panel">
+        <div style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:800;">
+          <i class="fa-solid fa-filter" style="color:var(--accent-purple);"></i>
+          <span>Multi-Criteria Query Builder</span>
+        </div>
+
+        <input type="text" class="search-input-box" id="querySearchInput" placeholder="🔍 Search by Client, Task Description, Vendor, Owner or Project ID..." oninput="triggerQuerySearch()">
+
+        <div class="query-dropdowns-row">
+          <div class="query-select-group">
+            <label>Client / Account</label>
+            <select class="query-select" id="queryClientSelect" onchange="triggerQuerySearch()">
+              <option value="ALL">All Clients</option>
+            </select>
+          </div>
+
+          <div class="query-select-group">
+            <label>Project Status</label>
+            <select class="query-select" id="queryStatusSelect" onchange="triggerQuerySearch()">
+              <option value="ALL">All Statuses</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+              <option value="Pending Approval">Pending Approval</option>
+              <option value="On Hold">On Hold</option>
+              <option value="Dropped">Dropped</option>
+            </select>
+          </div>
+
+          <div class="query-select-group">
+            <label>Vendor / Mill</label>
+            <select class="query-select" id="queryVendorSelect" onchange="triggerQuerySearch()">
+              <option value="ALL">All Vendors</option>
+            </select>
+          </div>
+
+          <div class="query-select-group">
+            <label>Department / Category</label>
+            <select class="query-select" id="queryCategorySelect" onchange="triggerQuerySearch()">
+              <option value="ALL">All Categories</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Found Records Bar -->
+      <div style="display:flex; align-items:center; justify-content:space-between; font-size:13px; color:var(--text-muted);">
+        <div>Found <strong id="queryFoundCount" style="color:var(--text-main); font-weight:800;">14</strong> matching records</div>
+        <div style="font-size:12px; font-style:italic;">Click any record to inspect full notes</div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="cards-grid-3col" id="queryCardsGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 3: MASTER TRACKER TABLE (FULL WIDTH & EXCEL SUITE)
+         ==================================================================== -->
+    <section class="view-pane" id="viewTracker">
+      
+      <!-- STATUS TOTALS KPI STRIP -->
+      <div class="status-summary-kpi-bar">
+        <div class="status-kpi-pill active" id="kpiStatus_ALL" onclick="filterByStatusKPI('ALL')">
+          <span class="kpi-indicator" style="background:#64748b;"></span>
+          <span class="kpi-name">ALL RECORDS</span>
+          <span class="kpi-count" id="countKPI_ALL">0</span>
+        </div>
+        <div class="status-kpi-pill kpi-in-prog" id="kpiStatus_InProgress" onclick="filterByStatusKPI('In Progress')">
+          <span class="kpi-indicator" style="background:#0f172a;"></span>
+          <span class="kpi-name">IN PROGRESS</span>
+          <span class="kpi-count" id="countKPI_InProgress">0</span>
+        </div>
+        <div class="status-kpi-pill kpi-completed" id="kpiStatus_Completed" onclick="filterByStatusKPI('Completed')">
+          <span class="kpi-indicator" style="background:#10b981;"></span>
+          <span class="kpi-name">COMPLETED</span>
+          <span class="kpi-count" id="countKPI_Completed">0</span>
+        </div>
+        <div class="status-kpi-pill kpi-on-hold" id="kpiStatus_OnHold" onclick="filterByStatusKPI('On Hold')">
+          <span class="kpi-indicator" style="background:#ef4444;"></span>
+          <span class="kpi-name">ON HOLD</span>
+          <span class="kpi-count" id="countKPI_OnHold">0</span>
+        </div>
+        <div class="status-kpi-pill kpi-pending" id="kpiStatus_Pending" onclick="filterByStatusKPI('Pending Approval')">
+          <span class="kpi-indicator" style="background:#f59e0b;"></span>
+          <span class="kpi-name">PENDING APPROVAL</span>
+          <span class="kpi-count" id="countKPI_Pending">0</span>
+        </div>
+        <div class="status-kpi-pill kpi-dropped" id="kpiStatus_Dropped" onclick="filterByStatusKPI('Dropped')">
+          <span class="kpi-indicator" style="background:#94a3b8;"></span>
+          <span class="kpi-name">DROPPED</span>
+          <span class="kpi-count" id="countKPI_Dropped">0</span>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <!-- TOP ACTIONS & SEARCH BAR -->
+        <div class="table-top-bar">
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; flex:1;">
+            <input type="text" class="table-search-input" id="tableFilterInput" placeholder="🔍 Quick filter table..." oninput="onSearchOrFilterChange()">
+            <span style="font-size:12px; color:var(--text-muted); font-weight:700;" id="tableRowsCountText">Showing 14 rows</span>
+
+            <!-- Bulk Action Bar -->
+            <div id="bulkActionBar" style="display:none; align-items:center; gap:8px; background:#f1f5f9; border:1px solid #cbd5e1; padding:4px 12px; border-radius:8px;">
+              <span id="bulkSelectedCount" style="font-size:12px; font-weight:800; color:#0f172a;">0 selected</span>
+              <button onclick="bulkDeleteSelected()" class="btn-action" style="background:#ef4444; color:#ffffff; padding:5px 12px; font-size:11.5px; font-weight:700; border-radius:6px; border:none; cursor:pointer; display:flex; align-items:center; gap:5px; box-shadow:0 1px 2px rgba(239,68,68,0.2);">
+                <i class="fa-solid fa-trash"></i> Delete Selected
+              </button>
+              <button onclick="clearAllSelections()" style="background:#ffffff; border:1px solid #cbd5e1; color:#64748b; padding:5px 10px; font-size:11.5px; border-radius:6px; cursor:pointer; font-weight:600;">Deselect All</button>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:10px;">
+            <a href="/api/projects/export-csv" class="btn-action" style="background:#f0fdf4; border:1px solid #86efac; color:#166534; text-decoration:none; display:inline-flex; align-items:center; gap:7px; font-size:12.5px; font-weight:800; padding:8px 16px; border-radius:8px; box-shadow:0 1px 2px rgba(22,101,52,0.1);" title="Download full Master Tracker as Excel / CSV">
+              <i class="fa-solid fa-file-excel" style="color:#16a34a; font-size:15px;"></i>
+              <span>Download Excel Tracker</span>
+            </a>
+            <button class="btn-action btn-primary-purple" onclick="openCreateProjectModal()">
+              <i class="fa-solid fa-plus"></i>
+              <span>Add Record</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- BUYER QUICK FILTER TABS -->
+        <div class="buyer-filter-strip" id="buyerFilterStrip">
+          <span style="font-size:11px; font-weight:800; color:#64748b; text-transform:uppercase; margin-right:4px;">BUYER:</span>
+          <button class="buyer-btn active" onclick="filterByBuyer('ALL', this)">ALL BUYERS</button>
+          <button class="buyer-btn" onclick="filterByBuyer('JACENT', this)">JACENT</button>
+          <button class="buyer-btn" onclick="filterByBuyer('CBC', this)">CBC</button>
+          <button class="buyer-btn" onclick="filterByBuyer('LINEN HOUSE', this)">LINEN HOUSE</button>
+          <button class="buyer-btn" onclick="filterByBuyer('BEST S', this)">BEST S</button>
+          <button class="buyer-btn" onclick="filterByBuyer('NASIMI/OMAR', this)">NASIMI/OMAR</button>
+          <button class="buyer-btn" onclick="filterByBuyer('DOLLAR TREE', this)">DOLLAR TREE</button>
+        </div>
+
+        <!-- EXCEL DATA TABLE -->
+        <div style="margin-top:14px; overflow-x:auto;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width:36px; text-align:center;">
+                  <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll(this)" title="Select all visible rows" style="cursor:pointer; width:15px; height:15px; accent-color:#0f172a;">
+                </th>
+                <th>CODE</th>
+                <th>CLIENT</th>
+                <th>START DATE</th>
+                <th>TASK / PRODUCT DESCRIPTION</th>
+                <th>CATEGORY</th>
+                <th>VENDOR</th>
+                <th>OWNER</th>
+                <th>STATUS TAG</th>
+                <th>REMARKS / NEXT STEPS (HOVER FOR FULL TRAIL)</th>
+                <th style="text-align:center;">ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody id="masterTableBody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- BOTTOM PAGINATION BAR (10 RECORDS / PAGE) -->
+        <div class="table-pagination-bar">
+          <div class="pagination-info">
+            Showing <strong id="pagRangeStart">1</strong> - <strong id="pagRangeEnd">10</strong> of <strong id="pagTotalRows">14</strong> records
+            <span style="color:#94a3b8; margin-left:6px;">(Page <strong id="pagCurrentPageNum">1</strong> of <strong id="pagTotalPagesNum">2</strong>)</span>
+          </div>
+
+          <div class="pagination-controls">
+            <button class="pag-btn" id="btnPagFirst" onclick="goToPage(1)" title="First Page"><i class="fa-solid fa-angles-left"></i></button>
+            <button class="pag-btn" id="btnPagPrev" onclick="goToPage(currentPage - 1)" title="Previous Page"><i class="fa-solid fa-chevron-left"></i></button>
+            <div id="pagNumberButtons" style="display:inline-flex; gap:4px;"></div>
+            <button class="pag-btn" id="btnPagNext" onclick="goToPage(currentPage + 1)" title="Next Page"><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="pag-btn" id="btnPagLast" onclick="goToPage(totalPages)" title="Last Page"><i class="fa-solid fa-angles-right"></i></button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 4: DAILY ACTIONS KANBAN BOARD
+         ==================================================================== -->
+    <section class="view-pane" id="viewActions">
+      <div style="display:flex; align-items:center; justify-content:space-between;">
+        <div>
+          <h2 style="font-size:18px; font-weight:800;">Daily Action Items & Priority Board</h2>
+          <p style="font-size:12.5px; color:var(--text-muted); margin-top:2px;">Track and move tasks across immediate execution lanes.</p>
+        </div>
+        <button class="btn-action btn-primary-purple" onclick="openCreateActionModal()">
+          <i class="fa-solid fa-plus"></i>
+          <span>New Action Task</span>
+        </button>
+      </div>
+
+      <div class="kanban-grid-4col">
+        <!-- Lane 1: Action Required -->
+        <div class="kanban-column col-action-req" id="laneActionRequired">
+          <div class="kanban-col-head">
+            <span class="kanban-col-title">ACTION REQUIRED</span>
+            <span class="kanban-col-count" id="countLaneAction">0</span>
+          </div>
+          <div class="kanban-cards-stack" id="stackLaneAction"></div>
+        </div>
+
+        <!-- Lane 2: In Progress -->
+        <div class="kanban-column col-in-prog" id="laneInProgress">
+          <div class="kanban-col-head">
+            <span class="kanban-col-title">IN PROGRESS</span>
+            <span class="kanban-col-count" id="countLaneInProgress">0</span>
+          </div>
+          <div class="kanban-cards-stack" id="stackLaneInProgress"></div>
+        </div>
+
+        <!-- Lane 3: Pending Approval -->
+        <div class="kanban-column col-pending" id="lanePendingApproval">
+          <div class="kanban-col-head">
+            <span class="kanban-col-title">PENDING APPROVAL</span>
+            <span class="kanban-col-count" id="countLanePending">0</span>
+          </div>
+          <div class="kanban-cards-stack" id="stackLanePending"></div>
+        </div>
+
+        <!-- Lane 4: Completed -->
+        <div class="kanban-column col-done" id="laneCompleted">
+          <div class="kanban-col-head">
+            <span class="kanban-col-title">COMPLETED</span>
+            <span class="kanban-col-count" id="countLaneCompleted">0</span>
+          </div>
+          <div class="kanban-cards-stack" id="stackLaneCompleted"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 5: VENDOR & CLIENT BI
+         ==================================================================== -->
+    <section class="view-pane" id="viewVendorBI">
+      <div class="bi-grid-two-col">
+        <!-- Left: Vendor Distribution & Operational Volume -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title">
+              <i class="fa-solid fa-industry" style="color:#06b6d4;"></i>
+              <span>Vendor Distribution & Operational Volume</span>
+            </div>
+          </div>
+          <div id="biVendorMetricsList" style="display:flex; flex-direction:column; gap:12px;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Right: Client Account Metrics -->
+        <div class="panel-card">
+          <div class="panel-header">
+            <div class="panel-title">
+              <i class="fa-solid fa-building" style="color:var(--accent-purple);"></i>
+              <span>Client Account Metrics</span>
+            </div>
+          </div>
+          <div id="biClientAccountsList" style="display:flex; flex-direction:column; gap:12px;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================================================================
+       CREATE PROJECT MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="modalCreateProject" onclick="if(event.target===this) closeCreateProjectModal()">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-pen-to-square" style="color:#8b5cf6;"></i> Create New Project Record</h3>
+        <button class="modal-close-btn" onclick="closeCreateProjectModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label>Project Code (Editable / Custom)</label>
+            <input type="text" class="form-input" id="inpCode" placeholder="e.g. PRJ-015 or PO-882" style="text-transform:uppercase; font-family:'JetBrains Mono',monospace; font-weight:800; color:#0f172a; background:#f8fafc;">
+          </div>
+          <div class="form-group">
+            <label>Client Account</label>
+            <input type="text" class="form-input" id="inpClient" placeholder="e.g. JACENT" value="JACENT">
+          </div>
+        </div>
+
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label>Start Date</label>
+            <input type="date" class="form-input" id="inpStartDate">
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" class="form-input" id="inpCategory" placeholder="e.g. Product Dev" value="Product Dev">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Task / Product Description</label>
+          <textarea class="form-textarea" id="inpDesc" placeholder="Enter detailed task summary..."></textarea>
+        </div>
+
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label>Vendor / Mill</label>
+            <input type="text" class="form-input" id="inpVendor" placeholder="e.g. Shaoxing Textile Co." value="Shaoxing Textile Co.">
+          </div>
+          <div class="form-group">
+            <label>Owner / Manager</label>
+            <input type="text" class="form-input" id="inpOwner" placeholder="e.g. Sarah M." value="Sarah M.">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+          <select class="form-select" id="inpStatus">
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending Approval">Pending Approval</option>
+            <option value="On Hold">On Hold</option>
+            <option value="Dropped">Dropped</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Remarks / Next Steps</label>
+          <input type="text" class="form-input" id="inpRemarks" placeholder="Additional follow-up notes...">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action" onclick="closeCreateProjectModal()">Cancel</button>
+        <button class="btn-action btn-primary-purple" onclick="submitCreateProject()">Save Record</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ====================================================================
+       ADMIN USER PROFILE MODAL (TAWAL PREET SINGH)
+       ==================================================================== -->
+  <div class="modal-overlay" id="modalUserProfile" onclick="if(event.target===this) closeUserModal()">
+    <div class="modal-window" style="max-width:440px;">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-id-badge" style="color:var(--accent-purple);"></i> Administrator Profile</h3>
+        <button class="modal-close-btn" onclick="closeUserModal()">&times;</button>
+      </div>
+      <div class="modal-body" style="text-align:center; padding:24px 20px;">
+        <div style="position:relative; width:84px; height:84px; margin:0 auto 14px auto;">
+          <img src="/static/img/admin_tawal_preet_singh.png" style="width:84px; height:84px; border-radius:50%; object-fit:cover; border:3px solid #0f172a; box-shadow:0 4px 12px rgba(15,23,42,0.25);">
+          <span style="position:absolute; bottom:2px; right:2px; width:14px; height:14px; border-radius:50%; background:#10b981; border:2.5px solid #fff;"></span>
+        </div>
+        <h3 style="font-size:18px; font-weight:800; color:#0f172a; margin-bottom:4px;">Tawal Preet Singh</h3>
+        <div style="font-size:12.5px; font-weight:700; color:#0f172a; margin-bottom:6px;">Manager Export House &nbsp;•&nbsp; <span class="badge-admin-tag">ADMIN</span></div>
+        <div style="font-size:12px; color:#64748b; margin-bottom:16px;">
+          <i class="fa-solid fa-location-dot" style="color:#ef4444; margin-right:4px;"></i>Dehradun, Uttarakhand, India
+        </div>
+
+        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px 16px; text-align:left; font-size:12px; display:flex; flex-direction:column; gap:8px; margin-bottom:18px;">
+          <div style="display:flex; justify-content:space-between;">
+            <span style="color:#64748b;">Username:</span>
+            <strong style="color:#0f172a;">@admin</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="color:#64748b;">Email:</span>
+            <strong style="color:#0f172a;">tawal.singh@mamaison.in</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="color:#64748b;">System Role:</span>
+            <strong style="color:#0f172a;">Primary Administrator (All Rights)</strong>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="color:#64748b;">Security:</span>
+            <span style="color:#10b981; font-weight:700;"><i class="fa-solid fa-shield-halved"></i> Full Governance Active</span>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; justify-content:center;">
+          <a href="/admin" class="btn-action btn-primary-purple" style="flex:1; text-decoration:none; justify-content:center;">
+            <i class="fa-solid fa-user-shield"></i> Open Admin Panel
+          </a>
+          <button onclick="closeUserModal()" class="btn-action" style="background:#f1f5f9; border:1px solid #cbd5e1; color:#475569;">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       EDIT PROJECT MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="modalEditProject" onclick="if(event.target===this) closeEditProjectModal()">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-pen-to-square" style="color:var(--accent-purple);"></i> Edit Project & Code</h3>
+        <button class="modal-close-btn" onclick="closeEditProjectModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="editProjId">
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label>Project Code (Editable / Custom)</label>
+            <input type="text" class="form-input" id="editProjCode" placeholder="e.g. PRJ-001" style="text-transform:uppercase; font-family:'JetBrains Mono',monospace; font-weight:800; color:#0f172a; background:#f8fafc;">
+          </div>
+          <div class="form-group">
+            <label>Client Account</label>
+            <input type="text" class="form-input" id="editProjClient" placeholder="e.g. JACENT">
+          </div>
+        </div>
+
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label>Start Date</label>
+            <input type="date" class="form-input" id="editProjStartDate">
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" class="form-input" id="editProjCategory" placeholder="e.g. Product Dev">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Task / Product Description</label>
+          <textarea class="form-textarea" id="editProjDesc" placeholder="Enter detailed task summary..."></textarea>
+        </div>
+
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label>Vendor / Mill</label>
+            <input type="text" class="form-input" id="editProjVendor" placeholder="e.g. Shaoxing Textile Co.">
+          </div>
+          <div class="form-group">
+            <label>Owner / Manager</label>
+            <input type="text" class="form-input" id="editProjOwner" placeholder="e.g. Sarah M.">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+          <select class="form-select" id="editProjStatus">
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending Approval">Pending Approval</option>
+            <option value="On Hold">On Hold</option>
+            <option value="Dropped">Dropped</option>
+          </select>
+        </div>
+
+        <!-- REMARKS AUDIT TRAIL / LAST DISCUSSION -->
+        <div class="form-group">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+            <label style="font-weight:700; color:#1e293b; margin-bottom:0;">
+              <i class="fa-solid fa-clock-rotate-left" style="color:#0f172a;"></i> Last Discussion & Remarks History
+            </label>
+            <span style="font-size:11px; font-weight:700; color:#0f172a; background:#e2e8f0; padding:2px 8px; border-radius:10px;" id="editRemarksCountText">0 entries</span>
+          </div>
+          <div id="editProjRemarksHistory" style="max-height:140px; overflow-y:auto; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:10px 12px; font-size:12px; display:flex; flex-direction:column; gap:8px;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- NEW REMARK INPUT (ALWAYS EMPTY FOR NEXT UPDATE) -->
+        <div class="form-group" style="margin-top:10px;">
+          <label style="color:#0f172a; font-weight:800; display:flex; align-items:center; gap:6px;">
+            <i class="fa-solid fa-plus-circle" style="color:#0f172a;"></i> Add New Update / Next Discussion Note:
+          </label>
+          <textarea class="form-textarea" id="editProjNewRemark" placeholder="Type new update / discussion notes here (will be auto-saved with today's date, time and seconds)..." style="height:65px; border-color:#cbd5e1; background:#ffffff; font-size:12.5px;"></textarea>
+          <span style="font-size:11px; color:#64748b; margin-top:3px; display:block;">Remark box is empty for your new update. Leave empty if no changes.</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action" onclick="closeEditProjectModal()">Cancel</button>
+        <button class="btn-action btn-primary-purple" onclick="submitEditProject()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ====================================================================
+       CREATE ACTION TASK MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="modalCreateAction" onclick="if(event.target===this) closeCreateActionModal()">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-list-check" style="color:#06b6d4;"></i> Add Daily Action Task</h3>
+        <button class="modal-close-btn" onclick="closeCreateActionModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label>Client Account</label>
+            <input type="text" class="form-input" id="actClient" placeholder="e.g. JACENT" value="JACENT">
+          </div>
+          <div class="form-group">
+            <label>Priority</label>
+            <select class="form-select" id="actPriority">
+              <option value="High">High</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Task Title / Immediate Action</label>
+          <input type="text" class="form-input" id="actTitle" placeholder="e.g. Negotiate container freight rates...">
+        </div>
+
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label>Execution Lane</label>
+            <select class="form-select" id="actLane">
+              <option value="Action Required">Action Required</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Pending Approval">Pending Approval</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Due Date</label>
+            <input type="date" class="form-input" id="actDueDate">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action" onclick="closeCreateActionModal()">Cancel</button>
+        <button class="btn-action btn-primary-purple" onclick="submitCreateAction()">Add Task</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       OFFICE LAN SHARING GUIDE MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="modalShare" onclick="if(event.target===this) closeShareModal()">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-network-wired" style="color:#34d399;"></i> Share with Office Colleagues</h3>
+        <button class="modal-close-btn" onclick="closeShareModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;">
+          Your office colleagues on the same Wi-Fi / Local Area Network (LAN) can connect to this exact SQL database in real-time from their browser:
+        </p>
+
+        <div style="background:#080d1a; border:1px solid #10b981; border-radius:10px; padding:14px; display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-family:'JetBrains Mono', monospace; font-size:14px; font-weight:800; color:#34d399;" id="modalColleagueUrl">
+            http://192.168.1.15:8050
+          </span>
+          <button class="btn-action" onclick="copyColleagueLink()" style="font-size:11px; padding:4px 10px;">
+            <i class="fa-regular fa-copy"></i> Copy
+          </button>
+        </div>
+
+        <div style="font-size:12px; color:var(--text-muted); display:flex; flex-direction:column; gap:6px;">
+          <div>✅ <strong>Live Multi-User Sync:</strong> Changes made by colleagues update in SQL instantly.</div>
+          <div>✅ <strong>Role Protection:</strong> Admins can create and manage user accounts.</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action" onclick="closeShareModal()">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION CONTROLLER -->
+  <script>
+    let biData = null;
+    let allProjects = [];
+    let allActions = [];
+    let currentUser = { username: "sarah", full_name: "Sarah M.", role: "manager" };
+
+    // Set today's date in form datepickers
+    const todayStr = new Date().toISOString().split('T')[0];
+    document.getElementById('inpStartDate').value = todayStr;
+    document.getElementById('actDueDate').value = todayStr;
+
+    // View Switcher
+    function switchView(viewName) {
+      document.querySelectorAll('.view-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
+
+      if (viewName === 'dashboard') {
+        document.getElementById('viewDashboard').classList.add('active');
+        document.getElementById('tabDashboard').classList.add('active');
+      } else if (viewName === 'search') {
+        document.getElementById('viewSearch').classList.add('active');
+        document.getElementById('tabSearch').classList.add('active');
+        triggerQuerySearch();
+      } else if (viewName === 'tracker') {
+        document.getElementById('viewTracker').classList.add('active');
+        document.getElementById('tabTracker').classList.add('active');
+        renderMasterTable(allProjects);
+      } else if (viewName === 'actions') {
+        document.getElementById('viewActions').classList.add('active');
+        document.getElementById('tabActions').classList.add('active');
+        renderKanbanBoard(allActions);
+      } else if (viewName === 'vendorBI') {
+        document.getElementById('viewVendorBI').classList.add('active');
+        document.getElementById('tabVendorBI').classList.add('active');
+      }
+    }
+
+    // Network Info & IP Discovery
+    async function fetchNetworkInfo() {
+      try {
+        const res = await fetch('/api/network-info');
+        const data = await res.json();
+        document.getElementById('headerLanIp').textContent = `LAN: ${data.lan_ip}:${data.port}`;
+        document.getElementById('modalColleagueUrl').textContent = data.colleague_url;
+      } catch (e) {
+        console.error('Failed to load network info', e);
+      }
+    }
+
+    // Load BI Analytics & KPIs
+    async function loadBIAnalytics() {
+      try {
+        const res = await fetch('/api/bi');
+        biData = await res.json();
+        renderDashboard(biData);
+        populateDropdowns(biData.filter_options);
+      } catch (e) {
+        console.error('Failed to load BI analytics', e);
+      }
+    }
+
+    function renderDashboard(data) {
+      const kpis = data.kpis;
+      document.getElementById('dashTotalProjects').textContent = kpis.total_projects;
+      document.getElementById('dashInProgress').textContent = kpis.in_progress;
+      document.getElementById('dashPending').textContent = kpis.pending_signoff;
+      document.getElementById('dashCompleted').textContent = kpis.completed;
+      document.getElementById('dashCompletionRate').textContent = `${kpis.completion_rate}%`;
+      document.getElementById('dashRateBar').style.width = `${kpis.completion_rate}%`;
+
+      document.getElementById('metricInProgCount').textContent = kpis.in_progress;
+      document.getElementById('metricDoneCount').textContent = kpis.completed;
+      document.getElementById('metricPendingCount').textContent = kpis.pending_signoff;
+      document.getElementById('metricHoldCount').textContent = kpis.on_hold;
+      document.getElementById('metricDropCount').textContent = kpis.dropped;
+
+      // Workload List
+      const wlContainer = document.getElementById('dashClientWorkloadList');
+      wlContainer.innerHTML = data.client_workload.map(c => `
+        <div class="workload-item">
+          <div class="workload-meta">
+            <span>${c.client}</span>
+            <span style="color:var(--text-muted); font-size:12px;">${c.count} items (${c.percentage}%)</span>
+          </div>
+          <div class="workload-bar-wrap">
+            <div class="workload-bar-fill" style="width: ${c.percentage}%;"></div>
+          </div>
+        </div>
+      `).join('');
+
+      // Vendor Metrics in View 5
+      const vmContainer = document.getElementById('biVendorMetricsList');
+      vmContainer.innerHTML = data.vendor_metrics.map(v => `
+        <div class="vendor-stat-row">
+          <div class="vendor-top-meta">
+            <span>${v.vendor}</span>
+            <span style="font-family:'JetBrains Mono',monospace; color:var(--text-muted);">${v.projects} Projects</span>
+          </div>
+          <div style="font-size:11px; color:var(--text-muted); display:flex; justify-content:space-between;">
+            <span>Completion Rate: ${v.rate}%</span>
+            <span>${v.done} of ${v.projects} Done</span>
+          </div>
+          <div class="vendor-progress-wrap">
+            <div class="vendor-progress-fill" style="width: ${v.rate}%;"></div>
+          </div>
+        </div>
+      `).join('');
+
+      // Client Accounts in View 5
+      const caContainer = document.getElementById('biClientAccountsList');
+      caContainer.innerHTML = data.client_accounts.map(ca => `
+        <div class="client-account-card">
+          <div class="client-card-top">
+            <span>${ca.client}</span>
+            <span class="orders-count-badge">${ca.orders} Active Orders</span>
+          </div>
+          <div style="font-size:11.5px; color:var(--text-muted);">
+            Categories: ${ca.categories.join(', ')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function populateDropdowns(options) {
+      if (!options) return;
+      const cSel = document.getElementById('queryClientSelect');
+      cSel.innerHTML = '<option value="ALL">All Clients (' + options.clients.length + ')</option>' +
+        options.clients.map(c => `<option value="${c}">${c}</option>`).join('');
+
+      const vSel = document.getElementById('queryVendorSelect');
+      vSel.innerHTML = '<option value="ALL">All Vendors (' + options.vendors.length + ')</option>' +
+        options.vendors.map(v => `<option value="${v}">${v}</option>`).join('');
+
+      const catSel = document.getElementById('queryCategorySelect');
+      catSel.innerHTML = '<option value="ALL">All Categories</option>' +
+        options.categories.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+    }
+
+    // Projects Data & Search
+    async function loadProjects() {
+      try {
+        const res = await fetch('/api/projects');
+        allProjects = await res.json();
+        const existingIds = new Set(allProjects.map(p => p.id));
+        selectedProjectIds.forEach(id => {
+          if (!existingIds.has(id)) selectedProjectIds.delete(id);
+        });
+        document.getElementById('badgeTrackerCount').textContent = allProjects.length;
+        lastFilteredProjects = allProjects;
+        updateStatusKPIs();
+        renderMasterTable(allProjects);
+        renderQueryCards(allProjects);
+      } catch (e) {
+        console.error('Failed to load projects', e);
+      }
+    }
+
+    function triggerQuerySearch() {
+      const q = document.getElementById('querySearchInput').value.toLowerCase().trim();
+      const client = document.getElementById('queryClientSelect').value;
+      const status = document.getElementById('queryStatusSelect').value;
+      const vendor = document.getElementById('queryVendorSelect').value;
+      const category = document.getElementById('queryCategorySelect').value;
+
+      const filtered = allProjects.filter(p => {
+        const matchQ = !q || p.code.toLowerCase().includes(q) ||
+          p.client.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.vendor.toLowerCase().includes(q) ||
+          p.owner.toLowerCase().includes(q) ||
+          (p.remarks && p.remarks.toLowerCase().includes(q));
+
+        const matchClient = (client === 'ALL' || p.client === client);
+        const matchStatus = (status === 'ALL' || p.status === status);
+        const matchVendor = (vendor === 'ALL' || p.vendor === vendor);
+        const matchCat = (category === 'ALL' || p.category === category);
+
+        return matchQ && matchClient && matchStatus && matchVendor && matchCat;
+      });
+
+      document.getElementById('queryFoundCount').textContent = filtered.length;
+      renderQueryCards(filtered);
+    }
+
+    function renderQueryCards(list) {
+      const grid = document.getElementById('queryCardsGrid');
+      if (list.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:50px; color:var(--text-muted);">No matching project records found</div>';
+        return;
+      }
+
+      grid.innerHTML = list.map(p => {
+        const pillClass = p.status.replace(/\s+/g, '-');
+        return `
+          <div class="project-grid-card">
+            <div class="project-card-top">
+              <span class="project-code-tag">${p.code}</span>
+              <span class="client-title">${p.client}</span>
+              <span class="status-pill ${pillClass}">${p.status}</span>
+            </div>
+            <div class="project-title">${p.description}</div>
+            <div class="project-meta-row">
+              <span><strong>VENDOR:</strong> ${p.vendor}</span>
+              <span><strong>OWNER:</strong> ${p.owner}</span>
+            </div>
+            <div class="project-remarks-box">
+              Remarks: ${p.remarks || 'None'}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    let selectedProjectIds = new Set();
+    let currentPage = 1;
+    const pageSize = 10;
+    let totalPages = 1;
+    let activeStatusFilter = 'ALL';
+    let activeBuyerFilter = 'ALL';
+    let lastFilteredProjects = [];
+
+    // Helper: Parse and serialize Remarks Audit Trail
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function parseRemarksTrail(rawRemarks) {
+      if (!rawRemarks) return [];
+      const str = String(rawRemarks).trim();
+      if (!str) return [];
+
+      const lines = str.split('\n').map(l => l.trim()).filter(Boolean);
+      const trail = [];
+
+      for (const line of lines) {
+        const m = line.match(/^\[([^\]]+)\]\s*(.*)$/);
+        if (m) {
+          trail.push({
+            text: m[2] || '--',
+            timestamp: m[1]
+          });
+        } else {
+          trail.push({
+            text: line,
+            timestamp: 'Initial Note'
+          });
+        }
+      }
+
+      return trail;
+    }
+
+    function serializeRemarksTrail(trail) {
+      return trail.map(item => `[${item.timestamp}] ${item.text}`).join('\n');
+    }
+
+    // Helper: Timestamp generator with Date, Time, and Second [DD-Mon-YYYY HH:mm:ss]
+    function getFullTimestamp() {
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, '0');
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const month = months[now.getMonth()];
+      const year = now.getFullYear();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      return `[${day}-${month}-${year} ${h}:${m}:${s}]`;
+    }
+
+    // Update Status Totals KPI Bar
+    function updateStatusKPIs() {
+      const counts = {
+        ALL: allProjects.length,
+        'In Progress': 0,
+        Completed: 0,
+        'On Hold': 0,
+        'Pending Approval': 0,
+        Dropped: 0
+      };
+
+      allProjects.forEach(p => {
+        if (counts[p.status] !== undefined) counts[p.status]++;
+      });
+
+      const elAll = document.getElementById('countKPI_ALL');
+      const elProg = document.getElementById('countKPI_InProgress');
+      const elDone = document.getElementById('countKPI_Completed');
+      const elHold = document.getElementById('countKPI_OnHold');
+      const elPend = document.getElementById('countKPI_Pending');
+      const elDrop = document.getElementById('countKPI_Dropped');
+
+      if (elAll) elAll.textContent = counts.ALL;
+      if (elProg) elProg.textContent = counts['In Progress'];
+      if (elDone) elDone.textContent = counts.Completed;
+      if (elHold) elHold.textContent = counts['On Hold'];
+      if (elPend) elPend.textContent = counts['Pending Approval'];
+      if (elDrop) elDrop.textContent = counts.Dropped;
+    }
+
+    function filterByStatusKPI(status) {
+      activeStatusFilter = status;
+      document.querySelectorAll('.status-kpi-pill').forEach(pill => pill.classList.remove('active'));
+      const activePill = document.getElementById(
+        status === 'ALL' ? 'kpiStatus_ALL' :
+        status === 'In Progress' ? 'kpiStatus_InProgress' :
+        status === 'Completed' ? 'kpiStatus_Completed' :
+        status === 'On Hold' ? 'kpiStatus_OnHold' :
+        status === 'Pending Approval' ? 'kpiStatus_Pending' : 'kpiStatus_Dropped'
+      );
+      if (activePill) activePill.classList.add('active');
+      currentPage = 1;
+      applyAllTableFilters();
+    }
+
+    function filterByBuyer(buyer, btn) {
+      activeBuyerFilter = buyer;
+      document.querySelectorAll('.buyer-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      currentPage = 1;
+      applyAllTableFilters();
+    }
+
+    function onSearchOrFilterChange() {
+      currentPage = 1;
+      applyAllTableFilters();
+    }
+
+    function applyAllTableFilters() {
+      const q = (document.getElementById('tableFilterInput')?.value || '').toLowerCase().trim();
+
+      const filtered = allProjects.filter(p => {
+        const matchesQuery = !q || p.code.toLowerCase().includes(q) ||
+          p.client.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.vendor.toLowerCase().includes(q) ||
+          p.owner.toLowerCase().includes(q) ||
+          (p.remarks && p.remarks.toLowerCase().includes(q));
+
+        const matchesStatus = (activeStatusFilter === 'ALL' || p.status === activeStatusFilter);
+        const matchesBuyer = (activeBuyerFilter === 'ALL' || p.client.toUpperCase() === activeBuyerFilter.toUpperCase());
+
+        return matchesQuery && matchesStatus && matchesBuyer;
+      });
+
+      lastFilteredProjects = filtered;
+      renderMasterTable(filtered);
+    }
+
+    function renderMasterTable(list) {
+      const tbody = document.getElementById('masterTableBody');
+      const totalCount = list.length;
+      document.getElementById('tableRowsCountText').textContent = `Showing ${totalCount} rows`;
+
+      totalPages = Math.ceil(totalCount / pageSize) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = Math.min(startIndex + pageSize, totalCount);
+      const pageSlice = list.slice(startIndex, endIndex);
+
+      // Update Pagination Bar UI
+      const startEl = document.getElementById('pagRangeStart');
+      const endEl = document.getElementById('pagRangeEnd');
+      const totalEl = document.getElementById('pagTotalRows');
+      const curPageEl = document.getElementById('pagCurrentPageNum');
+      const totalPagesEl = document.getElementById('pagTotalPagesNum');
+
+      if (startEl) startEl.textContent = totalCount === 0 ? 0 : startIndex + 1;
+      if (endEl) endEl.textContent = endIndex;
+      if (totalEl) totalEl.textContent = totalCount;
+      if (curPageEl) curPageEl.textContent = currentPage;
+      if (totalPagesEl) totalPagesEl.textContent = totalPages;
+
+      const btnFirst = document.getElementById('btnPagFirst');
+      const btnPrev = document.getElementById('btnPagPrev');
+      const btnNext = document.getElementById('btnPagNext');
+      const btnLast = document.getElementById('btnPagLast');
+
+      if (btnFirst) btnFirst.disabled = (currentPage === 1);
+      if (btnPrev) btnPrev.disabled = (currentPage === 1);
+      if (btnNext) btnNext.disabled = (currentPage === totalPages || totalCount === 0);
+      if (btnLast) btnLast.disabled = (currentPage === totalPages || totalCount === 0);
+
+      // Render Page Numbers
+      const pagBtnsContainer = document.getElementById('pagNumberButtons');
+      if (pagBtnsContainer) {
+        let btnsHtml = '';
+        for (let i = 1; i <= totalPages; i++) {
+          if (totalPages <= 7 || i === 1 || i === totalPages || Math.abs(i - currentPage) <= 1) {
+            btnsHtml += `<button class="pag-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+          } else if (Math.abs(i - currentPage) === 2) {
+            btnsHtml += `<span style="padding:4px 6px; color:#94a3b8;">...</span>`;
+          }
+        }
+        pagBtnsContainer.innerHTML = btnsHtml;
+      }
+
+      if (totalCount === 0) {
+        tbody.innerHTML = '<tr><td colspan="11" style="text-align:center; padding:35px; color:var(--text-muted); font-size:13px;">No records match the current filter</td></tr>';
+        updateBulkActionBar();
+        return;
+      }
+
+      // Check master checkbox state for current page
+      const masterCb = document.getElementById('selectAllCheckbox');
+      const allPageSelected = pageSlice.length > 0 && pageSlice.every(p => selectedProjectIds.has(p.id));
+      if (masterCb) masterCb.checked = allPageSelected;
+
+      tbody.innerHTML = pageSlice.map(p => {
+        const pillClass = p.status.replace(/\s+/g, '-');
+        const statusRowClass = `row-status-${p.status.toLowerCase().replace(/\s+/g, '-')}`;
+        const isSelected = selectedProjectIds.has(p.id);
+
+        // Parse remarks audit trail
+        const trail = parseRemarksTrail(p.remarks);
+        let displayHtml = '';
+        let fullHoverTooltip = '';
+
+        if (trail.length === 0) {
+          displayHtml = '<span style="color:#cbd5e1; font-style:italic;">-- No remarks --</span>';
+          fullHoverTooltip = 'No remarks or discussion recorded yet';
+        } else {
+          const latest = trail[0];
+          const olderCount = trail.length - 1;
+          const moreBadge = olderCount > 0 
+            ? `<span style="background:#e2e8f0; color:#0f172a; font-size:10px; font-weight:700; padding:1px 5px; border-radius:4px; margin-left:6px;">+${olderCount} older</span>` 
+            : '';
+
+          displayHtml = `
+            <div class="remark-cell-wrapper" onclick="openEditProjectModal(${p.id})">
+              <div class="remark-text-line">${escapeHtml(latest.text)}</div>
+              <div class="remark-date-subtext">
+                <i class="fa-regular fa-clock" style="font-size:10px; margin-right:3px;"></i>${escapeHtml(latest.timestamp)}${moreBadge}
+              </div>
+            </div>
+          `;
+
+          // Format hover tooltip: Remark FIRST, then Date, Time, Second! And shows ALL previous remarks!
+          const tooltipParts = [];
+          tooltipParts.push(`[LATEST DISCUSSION]\nRemark: ${latest.text}\nDate & Time: ${latest.timestamp}`);
+
+          if (olderCount > 0) {
+            tooltipParts.push('\n----------------------------------------\n[PREVIOUS DISCUSSIONS]');
+            for (let i = 1; i < trail.length; i++) {
+              tooltipParts.push(`${i}. Remark: ${trail[i].text}\n   Date & Time: ${trail[i].timestamp}`);
+            }
+          }
+          fullHoverTooltip = tooltipParts.join('\n').replace(/"/g, '&quot;');
+        }
+
+        return `
+          <tr id="rowProj_${p.id}" class="${statusRowClass} ${isSelected ? 'row-selected' : ''}">
+            <td style="text-align:center;">
+              <input type="checkbox" class="row-select-checkbox" data-id="${p.id}" ${isSelected ? 'checked' : ''} onchange="onRowCheckboxChange(this, ${p.id})" style="cursor:pointer; width:15px; height:15px; accent-color:#0f172a;">
+            </td>
+            <td>
+              <div class="code-badge-interactive" id="codeCell_${p.id}" onclick="startEditCode(${p.id}, '${p.code}')" title="Click to edit code">
+                <span>${p.code}</span>
+                <i class="fa-solid fa-pen code-pen-icon"></i>
+              </div>
+            </td>
+            <td style="font-weight:800; color:#0f172a;">${p.client}</td>
+            <td style="font-family:'JetBrains Mono',monospace; color:#64748b; font-size:12px;">${p.start_date}</td>
+            <td class="td-task-desc" style="font-weight:600;">${p.description}</td>
+            <td><span class="category-tag">${p.category}</span></td>
+            <td style="color:#475569;">${p.vendor}</td>
+            <td style="color:#475569; font-weight:600;">${p.owner}</td>
+            <td>
+              <select class="status-quick-select status-pill ${pillClass}" onchange="quickUpdateProjectStatus(${p.id}, this.value, '${p.code}')" title="Change status directly">
+                <option value="In Progress" ${p.status === 'In Progress' ? 'selected' : ''}>In Progress</option>
+                <option value="Completed" ${p.status === 'Completed' ? 'selected' : ''}>Completed</option>
+                <option value="On Hold" ${p.status === 'On Hold' ? 'selected' : ''}>On Hold</option>
+                <option value="Pending Approval" ${p.status === 'Pending Approval' ? 'selected' : ''}>Pending Approval</option>
+                <option value="Dropped" ${p.status === 'Dropped' ? 'selected' : ''}>Dropped</option>
+              </select>
+            </td>
+            <td title="${fullHoverTooltip}">
+              ${displayHtml}
+            </td>
+            <td style="text-align:center; white-space:nowrap;">
+              <button class="btn-table-action" onclick="openEditProjectModal(${p.id})" title="Edit Project & Code" style="color:#0f172a; margin-right:10px; font-size:15px; cursor:pointer;">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+              <button class="btn-table-action" onclick="deleteProjectRecord(${p.id}, '${p.code}')" title="Delete" style="color:#ef4444; font-size:15px; cursor:pointer;">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      updateBulkActionBar();
+    }
+
+    function goToPage(page) {
+      if (page < 1 || page > totalPages) return;
+      currentPage = page;
+      renderMasterTable(lastFilteredProjects);
+    }
+
+    async function quickUpdateProjectStatus(id, newStatus, code) {
+      try {
+        const res = await fetch(`/api/projects/${id}/status`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: newStatus })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          alert(data.detail || 'Could not update status');
+          return;
+        }
+
+        // Update local memory
+        const proj = allProjects.find(x => x.id === id);
+        if (proj) proj.status = newStatus;
+
+        showToast(`Status of [${code}] updated to [${newStatus}]`);
+        updateStatusKPIs();
+        renderMasterTable(lastFilteredProjects);
+        await loadBIAnalytics();
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    function onRowCheckboxChange(cb, id) {
+      if (cb.checked) {
+        selectedProjectIds.add(id);
+      } else {
+        selectedProjectIds.delete(id);
+      }
+      const row = document.getElementById(`rowProj_${id}`);
+      if (row) {
+        if (cb.checked) row.classList.add('row-selected');
+        else row.classList.remove('row-selected');
+      }
+      updateMasterCheckboxState();
+      updateBulkActionBar();
+    }
+
+    function toggleSelectAll(masterCb) {
+      const q = document.getElementById('tableFilterInput').value.toLowerCase().trim();
+      const currentList = allProjects.filter(p => {
+        return !q || p.code.toLowerCase().includes(q) ||
+          p.client.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.vendor.toLowerCase().includes(q) ||
+          p.owner.toLowerCase().includes(q) ||
+          (p.remarks && p.remarks.toLowerCase().includes(q));
+      });
+
+      if (masterCb.checked) {
+        currentList.forEach(p => selectedProjectIds.add(p.id));
+      } else {
+        currentList.forEach(p => selectedProjectIds.delete(p.id));
+      }
+
+      renderMasterTable(currentList);
+    }
+
+    function updateMasterCheckboxState() {
+      const masterCb = document.getElementById('selectAllCheckbox');
+      if (!masterCb) return;
+      const checkboxes = document.querySelectorAll('.row-select-checkbox');
+      if (checkboxes.length === 0) {
+        masterCb.checked = false;
+        masterCb.indeterminate = false;
+        return;
+      }
+      const checkedCount = document.querySelectorAll('.row-select-checkbox:checked').length;
+      masterCb.checked = checkedCount === checkboxes.length;
+      masterCb.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length;
+    }
+
+    function updateBulkActionBar() {
+      const bar = document.getElementById('bulkActionBar');
+      const countEl = document.getElementById('bulkSelectedCount');
+      if (!bar) return;
+      const count = selectedProjectIds.size;
+      if (count > 0) {
+        bar.style.display = 'flex';
+        if (countEl) countEl.textContent = `${count} selected`;
+      } else {
+        bar.style.display = 'none';
+      }
+    }
+
+    function clearAllSelections() {
+      selectedProjectIds.clear();
+      const masterCb = document.getElementById('selectAllCheckbox');
+      if (masterCb) {
+        masterCb.checked = false;
+        masterCb.indeterminate = false;
+      }
+      document.querySelectorAll('.row-select-checkbox').forEach(cb => cb.checked = false);
+      document.querySelectorAll('tr.row-selected').forEach(tr => tr.classList.remove('row-selected'));
+      updateBulkActionBar();
+    }
+
+    async function bulkDeleteSelected() {
+      const count = selectedProjectIds.size;
+      if (count === 0) return;
+      if (!confirm(`Are you sure you want to permanently delete ${count} selected project(s)?`)) return;
+
+      try {
+        const res = await fetch('/api/projects/bulk-delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ids: Array.from(selectedProjectIds) })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          alert(data.detail || 'Failed to delete selected projects');
+          return;
+        }
+
+        showToast(`🗑️ Successfully deleted ${data.count || count} projects`);
+        selectedProjectIds.clear();
+        await loadProjects();
+        await loadBIAnalytics();
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    function filterMasterTable() {
+      const q = document.getElementById('tableFilterInput').value.toLowerCase().trim();
+      const filtered = allProjects.filter(p => {
+        return !q || p.code.toLowerCase().includes(q) ||
+          p.client.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.vendor.toLowerCase().includes(q) ||
+          p.owner.toLowerCase().includes(q) ||
+          (p.remarks && p.remarks.toLowerCase().includes(q));
+      });
+      renderMasterTable(filtered);
+    }
+
+    // Daily Actions (Kanban)
+    async function loadActions() {
+      try {
+        const res = await fetch('/api/actions');
+        allActions = await res.json();
+        document.getElementById('badgeActionsCount').textContent = allActions.length;
+        renderKanbanBoard(allActions);
+        renderImmediateActionsDashboard(allActions);
+      } catch (e) {
+        console.error('Failed to load actions', e);
+      }
+    }
+
+    function renderKanbanBoard(list) {
+      const lanes = {
+        'Action Required': { stack: document.getElementById('stackLaneAction'), count: document.getElementById('countLaneAction') },
+        'In Progress': { stack: document.getElementById('stackLaneInProgress'), count: document.getElementById('countLaneInProgress') },
+        'Pending Approval': { stack: document.getElementById('stackLanePending'), count: document.getElementById('countLanePending') },
+        'Completed': { stack: document.getElementById('stackLaneCompleted'), count: document.getElementById('countLaneCompleted') }
+      };
+
+      Object.values(lanes).forEach(l => {
+        l.stack.innerHTML = '';
+        l.count.textContent = '0';
+      });
+
+      const counts = { 'Action Required': 0, 'In Progress': 0, 'Pending Approval': 0, 'Completed': 0 };
+
+      list.forEach(item => {
+        const laneKey = item.lane in lanes ? item.lane : 'Action Required';
+        counts[laneKey]++;
+
+        const card = document.createElement('div');
+        card.className = 'kanban-card';
+        card.innerHTML = `
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span class="client-badge-pill">${item.client}</span>
+            <span class="priority-badge priority-${item.priority}">${item.priority}</span>
+          </div>
+          <div style="font-size:13.5px; font-weight:700; color:var(--text-main);">${item.task_title}</div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-muted); display:flex; align-items:center; gap:6px;">
+            <i class="fa-regular fa-calendar"></i> ${item.due_date || 'No Date'}
+          </div>
+          <div class="kanban-move-bar">
+            <span>Move:</span>
+            ${laneKey !== 'Action Required' ? `<button class="btn-move" onclick="moveActionLane(${item.id}, 'Action Required')">Act</button>` : ''}
+            ${laneKey !== 'In Progress' ? `<button class="btn-move" onclick="moveActionLane(${item.id}, 'In Progress')">In</button>` : ''}
+            ${laneKey !== 'Pending Approval' ? `<button class="btn-move" onclick="moveActionLane(${item.id}, 'Pending Approval')">Pen</button>` : ''}
+            ${laneKey !== 'Completed' ? `<button class="btn-move" onclick="moveActionLane(${item.id}, 'Completed')">Com</button>` : ''}
+            <button class="btn-table-action" onclick="deleteActionTask(${item.id})" style="margin-left:auto;"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        `;
+        lanes[laneKey].stack.appendChild(card);
+      });
+
+      Object.keys(lanes).forEach(k => {
+        lanes[k].count.textContent = counts[k];
+      });
+    }
+
+    function renderImmediateActionsDashboard(list) {
+      const urgent = list.slice(0, 3);
+      const container = document.getElementById('dashImmediateActionsList');
+      container.innerHTML = urgent.map(item => `
+        <div class="action-card-preview">
+          <div class="action-top-row">
+            <span class="client-badge-pill">${item.client}</span>
+            <span class="action-date"><i class="fa-regular fa-calendar"></i> ${item.due_date}</span>
+          </div>
+          <div class="action-desc">${item.task_title}</div>
+          <div class="action-status-tag">Status: <strong>${item.lane}</strong></div>
+        </div>
+      `).join('');
+    }
+
+    async function moveActionLane(id, lane) {
+      try {
+        await fetch(`/api/actions/${id}/lane`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lane: lane })
+        });
+        await loadActions();
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    async function deleteActionTask(id) {
+      if (!confirm('Delete this action item?')) return;
+      try {
+        await fetch(`/api/actions/${id}`, { method: 'DELETE' });
+        await loadActions();
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    
+    // --- Inline Code & Project Edit Handlers ---
+    function startEditCode(id, currentCode) {
+      const cell = document.getElementById(`codeCell_${id}`);
+      if (!cell) return;
+      cell.outerHTML = `
+        <div class="inline-code-edit-wrap" id="codeWrap_${id}">
+          <input type="text" class="inline-code-input" id="inlineCodeInput_${id}" value="${currentCode}" 
+            onkeydown="if(event.key==='Enter') saveInlineCode(${id}); if(event.key==='Escape') cancelInlineCode(${id}, '${currentCode}');"
+          />
+          <button class="btn-code-save" onclick="saveInlineCode(${id})" title="Save Code"><i class="fa-solid fa-check"></i></button>
+          <button class="btn-code-cancel" onclick="cancelInlineCode(${id}, '${currentCode}')" title="Cancel"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      `;
+      const inp = document.getElementById(`inlineCodeInput_${id}`);
+      if (inp) {
+        inp.focus();
+        inp.select();
+      }
+    }
+
+    function cancelInlineCode(id, originalCode) {
+      const wrap = document.getElementById(`codeWrap_${id}`);
+      if (!wrap) return;
+      wrap.outerHTML = `
+        <div class="code-badge-interactive" id="codeCell_${id}" onclick="startEditCode(${id}, '${originalCode}')" title="Click to edit code">
+          <span>${originalCode}</span>
+          <i class="fa-solid fa-pen code-pen-icon"></i>
+        </div>
+      `;
+    }
+
+    async function saveInlineCode(id) {
+      const inp = document.getElementById(`inlineCodeInput_${id}`);
+      if (!inp) return;
+      const newCode = inp.value.trim().toUpperCase();
+      if (!newCode) {
+        alert("Project code cannot be empty");
+        inp.focus();
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/projects/${id}/code`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: newCode })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          alert(data.detail || 'Could not update project code');
+          inp.focus();
+          return;
+        }
+
+        showToast(`✅ Project code updated to [${data.code}] in SQL`);
+        await loadProjects();
+        await loadBIAnalytics();
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    function openEditProjectModal(id) {
+      const p = allProjects.find(x => x.id === id);
+      if (!p) return;
+      document.getElementById('editProjId').value = p.id;
+      document.getElementById('editProjCode').value = p.code;
+      document.getElementById('editProjClient').value = p.client;
+      document.getElementById('editProjStartDate').value = p.start_date;
+      document.getElementById('editProjStatus').value = p.status;
+      document.getElementById('editProjDesc').value = p.description;
+      document.getElementById('editProjVendor').value = p.vendor;
+      document.getElementById('editProjOwner').value = p.owner;
+      document.getElementById('editProjCategory').value = p.category;
+
+      // Remarks Trail Handling
+      const trail = parseRemarksTrail(p.remarks);
+      const trailContainer = document.getElementById('editProjRemarksHistory');
+      const countEl = document.getElementById('editRemarksCountText');
+      if (countEl) countEl.textContent = `${trail.length} ${trail.length === 1 ? 'entry' : 'entries'}`;
+
+      if (trailContainer) {
+        if (trail.length === 0) {
+          trailContainer.innerHTML = '<span style="color:#94a3b8; font-style:italic;">No previous discussions or notes recorded yet.</span>';
+        } else {
+          trailContainer.innerHTML = trail.map((item, idx) => `
+            <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:6px; padding:7px 10px;">
+              <div style="font-weight:700; color:#1e293b; margin-bottom:2px;">Remark: ${escapeHtml(item.text)}</div>
+              <div style="font-size:11px; color:#475569; font-family:'JetBrains Mono',monospace; font-weight:600;">
+                <i class="fa-regular fa-clock" style="margin-right:3px;"></i>Date & Time: ${escapeHtml(item.timestamp)}
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      // New remark input box is ALWAYS EMPTY for the next update!
+      const newRemarkInput = document.getElementById('editProjNewRemark');
+      if (newRemarkInput) {
+        newRemarkInput.value = '';
+        setTimeout(() => newRemarkInput.focus(), 150);
+      }
+
+      document.getElementById('modalEditProject').classList.add('open');
+    }
+
+    function closeEditProjectModal() {
+      document.getElementById('modalEditProject').classList.remove('open');
+    }
+
+    async function submitEditProject() {
+      const id = document.getElementById('editProjId').value;
+      const p = allProjects.find(x => String(x.id) === String(id));
+      const existingTrail = parseRemarksTrail(p ? p.remarks : '');
+
+      const newRemarkText = (document.getElementById('editProjNewRemark')?.value || '').trim();
+      let updatedTrail = [...existingTrail];
+
+      if (newRemarkText) {
+        // Prepend new remark to the top of the history with current live date, time, and second!
+        const cleanTimestamp = getFullTimestamp().replace(/^\[|\]$/g, '');
+        updatedTrail.unshift({
+          text: newRemarkText,
+          timestamp: cleanTimestamp
+        });
+      }
+
+      const serializedRemarks = serializeRemarksTrail(updatedTrail);
+
+      const data = {
+        code: document.getElementById('editProjCode').value.trim().toUpperCase(),
+        client: document.getElementById('editProjClient').value.trim(),
+        start_date: document.getElementById('editProjStartDate').value,
+        status: document.getElementById('editProjStatus').value,
+        description: document.getElementById('editProjDesc').value.trim(),
+        vendor: document.getElementById('editProjVendor').value.trim(),
+        owner: document.getElementById('editProjOwner').value.trim(),
+        category: document.getElementById('editProjCategory').value.trim(),
+        remarks: serializedRemarks
+      };
+
+      if (!data.code || !data.client || !data.description) {
+        alert('Please fill in Project Code, Client Account, and Task Description');
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/projects/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const resData = await res.json();
+        if (!res.ok) {
+          alert(resData.detail || 'Could not update project');
+          return;
+        }
+
+        closeEditProjectModal();
+        showToast(`✅ Project record [${data.code}] updated successfully`);
+        await loadProjects();
+        await loadBIAnalytics();
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    function showToast(msg) {
+      const existing = document.getElementById('appToast');
+      if (existing) existing.remove();
+      const toast = document.createElement('div');
+      toast.id = 'appToast';
+      toast.className = 'toast-notification';
+      toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color:#10b981;"></i> <span>${msg}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    // Modal Handlers
+    function openCreateProjectModal() {
+      const nextNum = allProjects.length + 1;
+      const autoCode = `PRJ-${String(nextNum).padStart(3, "0")}`;
+      const inpCode = document.getElementById('inpCode');
+      if (inpCode) inpCode.value = autoCode;
+      document.getElementById('modalCreateProject').classList.add('open');
+    }
+    function closeCreateProjectModal() {
+      document.getElementById('modalCreateProject').classList.remove('open');
+    }
+
+    async function submitCreateProject() {
+      const inpCode = document.getElementById('inpCode');
+      const rawRemark = document.getElementById('inpRemarks').value.trim();
+      const stampedRemark = rawRemark ? `${getFullTimestamp()} ${rawRemark}` : '';
+
+      const data = {
+        code: inpCode ? inpCode.value.trim().toUpperCase() : undefined,
+        client: document.getElementById('inpClient').value.trim(),
+        start_date: document.getElementById('inpStartDate').value,
+        description: document.getElementById('inpDesc').value.trim(),
+        vendor: document.getElementById('inpVendor').value.trim(),
+        owner: document.getElementById('inpOwner').value.trim(),
+        category: document.getElementById('inpCategory').value.trim(),
+        status: document.getElementById('inpStatus').value,
+        remarks: stampedRemark
+      };
+
+      if (!data.client || !data.description) {
+        alert('Please fill in Client Account and Task Description');
+        return;
+      }
+
+      try {
+        await fetch('/api/projects', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        closeCreateProjectModal();
+        await loadProjects();
+        await loadBIAnalytics();
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    async function deleteProjectRecord(id, code) {
+      const p = allProjects.find(x => x.id === id);
+      const label = code || (p ? p.code : `#${id}`);
+      if (!confirm(`Are you sure you want to permanently delete project [${label}]?`)) return;
+      try {
+        const res = await fetch(`/api/projects/${id}`, { method: 'DELETE' });
+        if (!res.ok) {
+          alert('Could not delete project');
+          return;
+        }
+        selectedProjectIds.delete(id);
+        showToast(`🗑️ Project [${label}] deleted`);
+        await loadProjects();
+        await loadBIAnalytics();
+      } catch (e) {
+        console.error(e);
+        alert(e.message);
+      }
+    }
+
+    function openCreateActionModal() {
+      document.getElementById('modalCreateAction').classList.add('open');
+    }
+    function closeCreateActionModal() {
+      document.getElementById('modalCreateAction').classList.remove('open');
+    }
+
+    async function submitCreateAction() {
+      const data = {
+        client: document.getElementById('actClient').value.trim(),
+        priority: document.getElementById('actPriority').value,
+        task_title: document.getElementById('actTitle').value.trim(),
+        lane: document.getElementById('actLane').value,
+        due_date: document.getElementById('actDueDate').value
+      };
+
+      if (!data.client || !data.task_title) {
+        alert('Please fill in Client and Task Title');
+        return;
+      }
+
+      try {
+        await fetch('/api/actions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        closeCreateActionModal();
+        await loadActions();
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    function openShareModal() {
+      document.getElementById('modalShare').classList.add('open');
+    }
+    function closeShareModal() {
+      document.getElementById('modalShare').classList.remove('open');
+    }
+
+    function copyColleagueLink() {
+      const url = document.getElementById('modalColleagueUrl').textContent.trim();
+      navigator.clipboard.writeText(url);
+      alert('Office Connection URL copied to clipboard!\nShare this with colleagues: ' + url);
+    }
+
+    function openUserModal() {
+      const modal = document.getElementById('modalUserProfile');
+      if (modal) modal.classList.add('open');
+    }
+    function closeUserModal() {
+      const modal = document.getElementById('modalUserProfile');
+      if (modal) modal.classList.remove('open');
+    }
+
+    async function checkAuthStatus() {
+      try {
+        const res = await fetch('/api/auth/me');
+        const data = await res.json();
+        if (data.authenticated && data.user) {
+          document.getElementById('headerUserName').textContent = data.user.full_name;
+          document.getElementById('headerUserAvatar').textContent = data.user.full_name.charAt(0);
+          if (data.user.role === 'admin') {
+            const btn = document.getElementById('btnAdminPanelNav');
+            if (btn) btn.style.display = 'inline-flex';
+          }
+        }
+      } catch (e) {
+        console.log('Guest state');
+      }
+    }
+
+    async function logoutPortal() {
+      await fetch('/api/auth/logout', { method: 'POST' });
+      localStorage.removeItem('ma_maison_token');
+      localStorage.removeItem('ma_maison_user');
+      window.location.href = '/';
+    }
+
+    // Initialize Data
+    checkAuthStatus();
+    fetchNetworkInfo();
+    loadBIAnalytics();
+    loadProjects();
+    loadActions();
+  </script>
+</body>
+</html>
+

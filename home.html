@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma Maison | Indian Textile Craftsmanship • Global Export Conglomerate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      /* Clean Executive Luxury Light Theme — Crisp Pearl Slate & Deep Royal Amethyst */
+      --ocean-deep: #f8fafc;
+      --ocean-navy: #ffffff;
+      --ocean-surface: #ffffff;
+      --ocean-card: #ffffff;
+      --ocean-elevated: #f1f5f9;
+      
+      --port-orange: #6b21a8;
+      --port-orange-hover: #7c3aed;
+      --port-amber: #d97706;
+      
+      --sea-cyan: #7c3aed;
+      --sea-blue: #581c87;
+      --sea-teal: #4338ca;
+      
+      --cargo-green: #059669;
+      --cargo-red: #dc2626;
+      
+      --border-steel: #e2e8f0;
+      --border-orange: #d8b4fe;
+      --border-cyan: #cbd5e1;
+      
+      --text-white: #0f172a;
+      --text-light: #1e293b;
+      --text-muted: #64748b;
+      
+      --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--ocean-deep);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Top Marine Dispatch Marquee Ticker */
+    .maritime-ticker {
+      background: #f1f5f9; border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--border-orange);
+      padding: 6px 1rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #475569;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .ticker-live-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pulse-dot-orange {
+      width: 8px;
+      height: 8px;
+      background-color: var(--port-orange);
+      border-radius: 50%;
+      box-shadow: 0 0 8px #6b21a8;
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 0.3; }
+      100% { transform: scale(0.9); opacity: 0.8; }
+    }
+
+    /* Header Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96); box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-steel);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-container {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0.85rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-icon-box {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #6b21a8, #7c3aed);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 14px rgba(107, 33, 168, 0.25);
+    }
+
+    .brand-text h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .brand-text h1 span {
+      color: var(--port-orange);
+    }
+
+    .brand-text p {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--sea-cyan);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-links a:hover {
+      color: var(--port-orange);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 0.65rem 1.35rem;
+      border-radius: 8px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn-orange {
+      background: linear-gradient(135deg, #6b21a8, #7c3aed);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(107, 33, 168, 0.25);
+    }
+
+    .btn-orange:hover {
+      background: linear-gradient(135deg, var(--port-orange-hover), var(--port-orange));
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(107, 33, 168, 0.35);
+    }
+
+    .btn-marine {
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
+    }
+
+    .btn-marine:hover {
+      background: linear-gradient(135deg, #6b21a8, #7c3aed);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline-steel {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-steel);
+      color: var(--text-light);
+    }
+
+    .btn-outline-steel:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* HERO SECTION with REAL CONTAINER SHIP PHOTO BACKGROUND */
+    .hero {
+      position: relative;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(248, 250, 252, 0.90) 0%, rgba(248, 250, 252, 0.98) 100%),
+                  url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1800&q=80') center center / cover no-repeat;
+      border-bottom: 1px solid var(--border-steel);
+      padding: 5rem 2rem;
+    }
+
+    .hero-container {
+      max-width: 1380px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3.5rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f3e8ff;
+      border: 1px solid var(--port-orange);
+      color: #475569;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.35rem 0.9rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3.6rem;
+      text-transform: uppercase;
+      line-height: 1.08;
+      color: #0f172a;
+      margin-bottom: 1.3rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title span.orange {
+      color: var(--port-orange);
+    }
+
+    .hero-title span.cyan {
+      color: var(--sea-cyan);
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: #475569;
+      margin-bottom: 2.2rem;
+      max-width: 620px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-bottom: 2.8rem;
+    }
+
+    /* Live Container Dispatch Radar Card */
+    .cargo-radar-card {
+      background: #ffffff; box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.1);
+      border: 1px solid var(--border-steel);
+      border-top: 4px solid var(--port-orange);
+      border-radius: 16px;
+      padding: 2.2rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      position: relative;
+    }
+
+    .cargo-radar-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.8rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-steel);
+    }
+
+    .cargo-radar-top h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-vessel-live {
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid var(--cargo-green);
+      color: #6ee7b7;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+    }
+
+    .metric-grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .metric-box {
+      background: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 1.2rem;
+      border-left: 3px solid var(--sea-cyan);
+    }
+
+    .metric-box.orange-accent {
+      border-left-color: var(--port-orange);
+    }
+
+    .metric-box .num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.1;
+    }
+
+    .metric-box .lbl {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .corridor-preview {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .corridor-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .corridor-item:last-child {
+      border-bottom: none;
+    }
+
+    .corridor-ports {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .corridor-ports i {
+      color: var(--port-orange);
+      font-size: 0.75rem;
+    }
+
+    .client-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #f3e8ff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: var(--sea-cyan);
+    }
+
+    /* SECTION 2: MULTIMODAL EXPORT FLEET (REAL EXPORT PICTURES) */
+    section {
+      padding: 5.5rem 2rem;
+      max-width: 1380px;
+      margin: 0 auto;
+    }
+
+    .section-title-wrap {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--port-orange);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+
+    .section-heading {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.7rem;
+      text-transform: uppercase;
+      color: #0f172a;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .fleet-card {
+      background: var(--ocean-surface);
+      border: 1px solid var(--border-steel);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .fleet-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--port-orange);
+      box-shadow: 0 20px 35px -5px rgba(107, 33, 168, 0.12);
+    }
+
+    .fleet-img-wrap {
+      height: 190px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .fleet-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .fleet-card:hover .fleet-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .fleet-tag-pill {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--port-orange);
+      color: var(--port-orange);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.65rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .fleet-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .fleet-content h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      color: #0f172a;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.5px;
+    }
+
+    .fleet-content p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+
+    .fleet-spec-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-top: 1px solid var(--border-steel);
+      padding-top: 0.9rem;
+    }
+
+    .fleet-spec-list li {
+      font-size: 0.78rem;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fleet-spec-list li i {
+      color: var(--port-orange);
+      font-size: 0.75rem;
+    }
+
+    /* SECTION 3: 14 PRODUCT LINES WITH INDUSTRIAL TEXTILE PHOTOS */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .catalog-item-card {
+      background: var(--ocean-surface);
+      border: 1px solid var(--border-steel);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .catalog-item-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--sea-cyan);
+      box-shadow: 0 20px 35px -5px rgba(124, 58, 237, 0.12);
+    }
+
+    .catalog-img-box {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .catalog-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .catalog-item-card:hover .catalog-img-box img {
+      transform: scale(1.06);
+    }
+
+    .catalog-category-tag {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(11, 26, 45, 0.9);
+      border: 1px solid var(--sea-cyan);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.65rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .catalog-body {
+      padding: 1.6rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .catalog-body h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.35rem;
+      text-transform: uppercase;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .catalog-body p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+
+    /* SECTION 4: GLOBAL RETAILERS BAND */
+    .retailers-band {
+      background: var(--ocean-navy);
+      border-top: 1px solid var(--border-steel);
+      border-bottom: 1px solid var(--border-steel);
+      padding: 3rem 2rem;
+    }
+
+    .retailers-wrap {
+      max-width: 1380px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .retailers-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .retailers-top h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .retailer-badges-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+    }
+
+    .retailer-box {
+      background: var(--ocean-surface);
+      border: 1px solid var(--border-steel);
+      border-radius: 10px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .retailer-box:hover {
+      border-color: var(--port-orange);
+      transform: translateY(-3px);
+    }
+
+    .retailer-box .brand-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      color: #0f172a;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .retailer-box .region-sub {
+      font-size: 0.72rem;
+      color: var(--port-orange);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    /* SECTION 5: DUAL HUB HUBS (DELHI & JAMMU) */
+    .hubs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .hub-card {
+      background: var(--ocean-surface);
+      border: 1px solid var(--border-steel);
+      border-radius: 14px;
+      padding: 2.2rem;
+      position: relative;
+    }
+
+    .hub-card.delhi-hub {
+      border-left: 5px solid var(--port-orange);
+    }
+
+    .hub-card.jammu-hub {
+      border-left: 5px solid var(--sea-cyan);
+    }
+
+    .hub-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      color: #0f172a;
+      margin-bottom: 0.6rem;
+    }
+
+    .hub-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+
+    .hub-details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 1px solid var(--border-steel);
+      padding-top: 1.2rem;
+    }
+
+    .hub-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: #e2e8f0;
+    }
+
+    .hub-row i {
+      color: var(--port-orange);
+      margin-top: 4px;
+    }
+
+    /* AUTH MODAL — BESPOKE BILL OF LADING / CARGO GATE PASS STYLE */
+    .modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(14px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      animation: fadeIn 0.25s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .cargo-gate-pass-modal {
+      background: #ffffff;
+      border: 2px solid var(--port-orange);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 540px;
+      box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+      overflow: hidden;
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Top Hazard Stripes Header */
+    .gate-pass-top-bar {
+      height: 10px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--port-orange),
+        var(--port-orange) 12px,
+        #0b1a2d 12px,
+        #0b1a2d 24px
+      );
+    }
+
+    .gate-pass-header {
+      padding: 1.6rem 2rem 1.2rem;
+      background: var(--ocean-surface);
+      border-bottom: 1px solid var(--border-steel);
+      position: relative;
+    }
+
+    .gate-pass-header h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .gate-pass-header p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.5rem;
+      background: #f3e8ff;
+      border: none;
+      color: #475569;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .modal-close-btn:hover {
+      background: var(--cargo-red);
+      color: #fff;
+    }
+
+    /* Auth Navigation Tabs */
+    .auth-tabs {
+      display: flex;
+      background: #f1f5f9;
+      border-bottom: 1px solid var(--border-steel);
+    }
+
+    .auth-tab-btn {
+      flex: 1;
+      padding: 0.95rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-bottom: 3px solid transparent;
+      transition: var(--transition);
+    }
+
+    .auth-tab-btn.active {
+      color: #6b21a8;
+      background: #ffffff;
+      font-weight: 800;
+      border-bottom-color: var(--port-orange);
+    }
+
+    .auth-body {
+      padding: 2rem;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Industrial Input Styling */
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-wrapper i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--port-orange);
+      font-size: 0.95rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.6rem;
+      background: #ffffff;
+      border: 1px solid var(--border-steel);
+      border-radius: 8px;
+      color: #0f172a;
+      font-size: 0.92rem;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--port-orange);
+      box-shadow: 0 0 0 3px rgba(107, 33, 168, 0.15);
+    }
+
+    select.form-control {
+      padding-left: 2.6rem;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23ff6b00' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.5l-5-5h10l-5 5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+    }
+
+    .notice-box {
+      background: #f3e8ff;
+      border: 1px solid var(--border-orange);
+      border-radius: 8px;
+      padding: 0.85rem;
+      margin-bottom: 1.3rem;
+      font-size: 0.82rem;
+      color: #475569;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .notice-box i {
+      color: var(--port-orange);
+      font-size: 1rem;
+      margin-top: 2px;
+    }
+
+    .alert-box {
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      margin-bottom: 1.2rem;
+      display: none;
+      line-height: 1.45;
+    }
+
+    .alert-error {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #fca5a5;
+    }
+
+    .alert-success {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #6ee7b7;
+    }
+
+    .btn-block {
+      width: 100%;
+      justify-content: center;
+      padding: 0.85rem;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      border-top: 1px solid var(--border-steel);
+      padding: 4rem 2rem 2.5rem;
+    }
+
+    .footer-container {
+      max-width: 1380px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-col h5 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col ul a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: var(--transition);
+    }
+
+    .footer-col ul a:hover {
+      color: var(--port-orange);
+    }
+
+    .footer-bottom {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-steel);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-container { grid-template-columns: 1fr; }
+      .fleet-grid { grid-template-columns: 1fr 1fr; }
+      .catalog-grid { grid-template-columns: 1fr 1fr; }
+      .retailer-badges-grid { grid-template-columns: repeat(3, 1fr); }
+      .hubs-grid { grid-template-columns: 1fr; }
+      .footer-container { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 650px) {
+      .fleet-grid { grid-template-columns: 1fr; }
+      .catalog-grid { grid-template-columns: 1fr; }
+      .retailer-badges-grid { grid-template-columns: 1fr 1fr; }
+      .footer-container { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.6rem; }
+    }
+  
+    /* ====================================================================
+       EXECUTIVE DIGITAL WATCH (Live Time, Seconds, Date, Day)
+       ==================================================================== */
+    .executive-digital-clock {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #11141c;
+      border: 1px solid #283042;
+      border-radius: 12px;
+      padding: 6px 22px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+      min-width: 220px;
+    }
+
+    .executive-digital-clock:hover {
+      border-color: #475569;
+      background: #151923;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .clock-time-row {
+      display: flex;
+      align-items: baseline;
+      gap: 3px;
+    }
+
+    .clock-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: clockBlinkDot 1.6s infinite ease-in-out;
+      margin-right: 6px;
+      align-self: center;
+    }
+
+    @keyframes clockBlinkDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
+    }
+
+    .clock-digits {
+      font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace, sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 1.2px;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+
+    .clock-seconds {
+      font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #94a3b8;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+
+    .clock-ampm {
+      font-size: 11px;
+      font-weight: 800;
+      color: #ffffff;
+      background: #232837;
+      border: 1px solid #363e52;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      align-self: center;
+    }
+
+    .clock-date-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      color: #8e9aa9;
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
+    .clock-cal-icon {
+      color: #94a3b8;
+      font-size: 11px;
+    }
+
+    .clock-day {
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .clock-date {
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1240px) {
+      .executive-digital-clock {
+        padding: 5px 16px;
+        min-width: 190px;
+      }
+      .clock-digits { font-size: 20px; }
+      .clock-seconds { font-size: 15px; }
+      .clock-date-row { font-size: 11.5px; }
+    }
+
+    @media (max-width: 900px) {
+      .executive-digital-clock { display: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Marine Dispatch Marquee Ticker -->
+  <div class="maritime-ticker">
+    <div class="ticker-live-status">
+      <span class="pulse-dot-orange"></span>
+      <span>EXPORT RADAR: IN-NSA (Nhava Sheva JNPT) &bull; IN-MUN (Mundra Port) &bull; 4,820+ TEU GLOBAL CONSIGNMENTS ACTIVE</span>
+    </div>
+    <div style="display: flex; gap: 18px;">
+      <span><i class="fa-solid fa-ship"></i> MAERSK &bull; MSC &bull; CMA CGM</span>
+      <span><i class="fa-solid fa-plane"></i> DHL EXPRESS AIR CARGO</span>
+      <span><i class="fa-solid fa-certificate"></i> BSCI GRADE A</span>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon-box">
+          <i class="fa-solid fa-ship"></i>
+        </div>
+        <div class="brand-text">
+          <h1>MA <span>MAISON</span></h1>
+          <p>Indian Textile Export Conglomerate</p>
+        </div>
+      </a>
+
+      
+    <!-- EXECUTIVE DIGITAL WATCH (Time, Seconds, Date, Day) -->
+    <div class="executive-digital-clock" id="executiveDigitalClock" onclick="toggleClock12_24()" title="Live System Digital Watch • Click to switch 12h/24h">
+      <div class="clock-time-row">
+        <span class="clock-live-dot" title="Live clock ticking"></span>
+        <span class="clock-digits" id="clockTimeDigits">--:--</span>
+        <span class="clock-seconds" id="clockSecondsDigits">:--</span>
+        <span class="clock-ampm" id="clockAmPm">--</span>
+      </div>
+      <div class="clock-date-row">
+        <i class="fa-regular fa-calendar-days clock-cal-icon"></i>
+        <span class="clock-day" id="clockDayName">Day</span>,
+        <span class="clock-date" id="clockDateFull">Date Month Year</span>
+      </div>
+    </div>
+
+      <ul class="nav-links">
+        <li><a href="#fleet"><i class="fa-solid fa-truck-container"></i> Export Fleet</a></li>
+        <li><a href="#catalog"><i class="fa-solid fa-boxes-packing"></i> 14 Product Lines</a></li>
+        <li><a href="#corridors"><i class="fa-solid fa-globe"></i> Global Ports</a></li>
+        <li><a href="#hubs"><i class="fa-solid fa-building"></i> Delhi & Jammu</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Logged-in profile pill -->
+        <div id="userProfileNav" style="display: none; align-items: center; gap: 10px;">
+          <span id="navUserBadge" style="font-size: 0.82rem; color: #475569; font-weight: 700;"></span>
+          <a href="/portal" class="btn btn-outline-steel" style="padding: 0.5rem 0.9rem; font-size: 0.82rem;">
+            <i class="fa-solid fa-chart-column"></i> BI Suite
+          </a>
+          <a id="navAdminBtn" href="/admin" class="btn btn-orange" style="padding: 0.5rem 0.9rem; font-size: 0.82rem; display: none;">
+            <i class="fa-solid fa-user-shield"></i> Admin Panel
+          </a>
+          <button onclick="handleLogout()" class="btn btn-outline-steel" style="padding: 0.5rem 0.75rem; font-size: 0.82rem; color: #f87171;" title="Logout">
+            <i class="fa-solid fa-power-off"></i>
+          </button>
+        </div>
+
+        <!-- Portal Login Trigger -->
+        <button id="openAuthModalBtn" onclick="openAuthModal('login')" class="btn btn-orange">
+          <i class="fa-solid fa-shield-halved"></i> Staff Portal Login
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION WITH GIANT SEA CRAFT / CONTAINER SHIP PHOTO -->
+    <div class="hero">
+      <div class="hero-container">
+        <div class="hero-left">
+          <div class="hero-tag">
+            <i class="fa-solid fa-anchor"></i> India's Premier Textile & Furnishing Export House
+          </div>
+          <h2 class="hero-title">
+            From Indian Looms <br>
+            To <span class="orange">Global Ports</span> <br>
+            & <span class="cyan">Retail Shelves.</span>
+          </h2>
+          <p class="hero-desc">
+            We manufacture and export certified hotel-grade bedding, quilted waterproof mattress encasements, value kitchen textiles, and handwoven luxury furnishings to international retail chains across the United States, Europe, Australia, and the Middle East.
+          </p>
+          <div class="hero-actions">
+            <button onclick="openAuthModal('login')" class="btn btn-orange" style="padding: 0.85rem 1.8rem; font-size: 0.95rem;">
+              <i class="fa-solid fa-right-to-bracket"></i> Enter Executive BI Suite
+            </button>
+            <a href="#fleet" class="btn btn-outline-steel" style="padding: 0.85rem 1.6rem; font-size: 0.95rem;">
+              <i class="fa-solid fa-truck-fast"></i> Inspect Export Operations
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Live Cargo Radar Card -->
+        <div class="cargo-radar-card">
+          <div class="cargo-radar-top">
+            <h3><i class="fa-solid fa-satellite-dish" style="color: var(--port-orange);"></i> Live Consignment Radar</h3>
+            <span class="badge-vessel-live"><i class="fa-solid fa-circle"></i> Port Gates Active</span>
+          </div>
+
+          <div class="metric-grid-2x2">
+            <div class="metric-box orange-accent">
+              <div class="num">14</div>
+              <div class="lbl">Active Export Products</div>
+            </div>
+            <div class="metric-box">
+              <div class="num">6</div>
+              <div class="lbl">Global Retail Giants</div>
+            </div>
+            <div class="metric-box">
+              <div class="num">4,820+</div>
+              <div class="lbl">TEU Containers Shipped</div>
+            </div>
+            <div class="metric-box orange-accent">
+              <div class="num">100%</div>
+              <div class="lbl">BSCI & AQL 2.5 Compliance</div>
+            </div>
+          </div>
+
+          <div class="corridor-preview">
+            <div style="font-size: 0.74rem; text-transform: uppercase; font-weight: 700; color: #475569; margin-bottom: 0.6rem;">
+              <i class="fa-solid fa-route"></i> Active Port Trade Corridors:
+            </div>
+            <div class="corridor-item">
+              <div class="corridor-ports">
+                <span>IN-NSA (Nhava Sheva)</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
+                <span>US-LAX (Los Angeles)</span>
+              </div>
+              <span class="client-tag">JACENT &bull; DOLLAR TREE</span>
+            </div>
+            <div class="corridor-item">
+              <div class="corridor-ports">
+                <span>IN-MUN (Mundra Port)</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
+                <span>AU-SYD (Sydney)</span>
+              </div>
+              <span class="client-tag">LINEN HOUSE</span>
+            </div>
+            <div class="corridor-item">
+              <div class="corridor-ports">
+                <span>IN-NSA (Nhava Sheva)</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
+                <span>DE-HAM (Hamburg)</span>
+              </div>
+              <span class="client-tag">CBC &bull; BEST S</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: MULTIMODAL EXPORT FLEET (REAL EXPORT PICTURES: SEA CRAFT, TRUCKS, CONTAINERS, CRANES) -->
+    <section id="fleet">
+      <div class="section-title-wrap">
+        <span class="section-eyebrow">End-to-End Export Infrastructure</span>
+        <h3 class="section-heading">Multimodal Shipping & Freight Capabilities</h3>
+        <p class="section-subtitle">
+          From weaving clusters in northern and southern India to deep-water container berths, our integrated logistics network ensures unbroken cold-chain, fumigated cartons, and guaranteed on-time vessel departures.
+        </p>
+      </div>
+
+      <div class="fleet-grid">
+        <!-- 1. Sea Craft & Container Vessels -->
+        <div class="fleet-card">
+          <div class="fleet-img-wrap">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=700&q=80" alt="Container Cargo Ship at Sea">
+            <span class="fleet-tag-pill"><i class="fa-solid fa-ship"></i> Ocean Sea Craft</span>
+          </div>
+          <div class="fleet-content">
+            <h4>Container Ocean Vessels</h4>
+            <p>Weekly ocean sailings with 20ft & 40ft High Cube containers bound for North America, Europe, and Australasia.</p>
+            <ul class="fleet-spec-list">
+              <li><i class="fa-solid fa-circle-check"></i> Direct Maersk, MSC & CMA CGM booking</li>
+              <li><i class="fa-solid fa-circle-check"></i> FCL & LCL Consolidated shipments</li>
+              <li><i class="fa-solid fa-circle-check"></i> Sealed High-Security bolt locks</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2. Port Terminal & Container Cranes -->
+        <div class="fleet-card">
+          <div class="fleet-img-wrap">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80" alt="Port Container Terminal Cranes">
+            <span class="fleet-tag-pill"><i class="fa-solid fa-dolly"></i> Port Terminal</span>
+          </div>
+          <div class="fleet-content">
+            <h4>Gantry Cranes & Terminals</h4>
+            <p>Customs bonded port warehousing at Nhava Sheva (JNPT) and Mundra with mechanized container stuffing and fumigation.</p>
+            <ul class="fleet-spec-list">
+              <li><i class="fa-solid fa-circle-check"></i> EDI Customs Bill of Lading clearance</li>
+              <li><i class="fa-solid fa-circle-check"></i> Phytosanitary & moisture control</li>
+              <li><i class="fa-solid fa-circle-check"></i> Palletized barcode verification</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3. Highway Heavy Freight Container Trucks -->
+        <div class="fleet-card">
+          <div class="fleet-img-wrap">
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=700&q=80" alt="Commercial Container Truck Trailer">
+            <span class="fleet-tag-pill"><i class="fa-solid fa-truck-moving"></i> Highway Freight</span>
+          </div>
+          <div class="fleet-content">
+            <h4>Heavy Container Trailers</h4>
+            <p>Dedicated GPS-tracked multi-axle trailer fleet connecting Panipat, Surat, and Jammu production hubs directly to port gates.</p>
+            <ul class="fleet-spec-list">
+              <li><i class="fa-solid fa-circle-check"></i> Real-time GPS consignment telematics</li>
+              <li><i class="fa-solid fa-circle-check"></i> Weather-sealed container bodies</li>
+              <li><i class="fa-solid fa-circle-check"></i> Dedicated driver dispatch team</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. Air Cargo Freighters -->
+        <div class="fleet-card">
+          <div class="fleet-img-wrap">
+            <img src="https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&w=700&q=80" alt="Air Cargo Freight Plane">
+            <span class="fleet-tag-pill"><i class="fa-solid fa-plane-departure"></i> Express Air Cargo</span>
+          </div>
+          <div class="fleet-content">
+            <h4>Aviation & Courier Dispatch</h4>
+            <p>Rapid 48-hour air courier dispatch for buyer lab-dip shade approvals, fabric swatches, and urgent seasonal production strike-offs.</p>
+            <ul class="fleet-spec-list">
+              <li><i class="fa-solid fa-circle-check"></i> DHL Express & FedEx aviation flights</li>
+              <li><i class="fa-solid fa-circle-check"></i> Lab-dip Shade B express airfreight</li>
+              <li><i class="fa-solid fa-circle-check"></i> Same-day airway bill issuance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 14 PRODUCT LINES (REAL MANUFACTURING & TEXTILE PHOTOS) -->
+    <section id="catalog" style="background: #f8fafc; border-top: 1px solid var(--border-steel); border-bottom: 1px solid var(--border-steel);">
+      <div class="section-title-wrap">
+        <span class="section-eyebrow">Export Portfolios</span>
+        <h3 class="section-heading">14 Certified Global Product Lines</h3>
+        <p class="section-subtitle">
+          Engineered to precise international buyer standards, tested across 5 wash cycles, and audited under BSCI Grade A ethical factory standards.
+        </p>
+      </div>
+
+      <div class="catalog-grid">
+        <!-- 1. Bedding & Sheets -->
+        <div class="catalog-item-card">
+          <div class="catalog-img-box">
+            <img src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=80" alt="Bamboo Bedding Sheets">
+            <span class="catalog-category-tag">PRJ-013 &bull; Bedding</span>
+          </div>
+          <div class="catalog-body">
+            <h4>Bamboo Sheet Sets & Egyptian Bedding</h4>
+            <p>5th cycle wash softness certified bamboo blends and 600 thread count Egyptian cotton sheets exported to Australian and US retail department stores.</p>
+            <div style="font-size: 0.78rem; color: var(--port-orange); font-weight: 700; margin-top: auto;">
+              CLIENTS: JACENT &bull; LINEN HOUSE
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Quilted Protectors -->
+        <div class="catalog-item-card">
+          <div class="catalog-img-box">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Textile Quality Inspection">
+            <span class="catalog-category-tag">PRJ-014 &bull; Commercial Utility</span>
+          </div>
+          <div class="catalog-body">
+            <h4>Quilted Waterproof Mattress Encasements</h4>
+            <p>Ultrasonic quilted mattress protectors featuring breathable waterproof TPU lamination for mass merchandisers and institutional hospitality chains.</p>
+            <div style="font-size: 0.78rem; color: var(--port-orange); font-weight: 700; margin-top: auto;">
+              CLIENT: CBC GLOBAL GROUP
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Kitchen Textiles -->
+        <div class="catalog-item-card">
+          <div class="catalog-img-box">
+            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80" alt="Warehouse Freight Cartons">
+            <span class="catalog-category-tag">PRJ-012 &bull; Kitchen</span>
+          </div>
+          <div class="catalog-body">
+            <h4>Kitchen Aprons, Dishcloths & Oven Mitts</h4>
+            <p>High-volume value 3-pack polybag aprons, ultra-absorbent microfiber dishcloths, and heat-resistant silicone oven mitt sets with custom UPC barcoding.</p>
+            <div style="font-size: 0.78rem; color: var(--port-orange); font-weight: 700; margin-top: auto;">
+              CLIENTS: DOLLAR TREE &bull; JACENT
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Velvet Cushions -->
+        <div class="catalog-item-card">
+          <div class="catalog-img-box">
+            <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=800&q=80" alt="Luxury Velvet Textiles">
+            <span class="catalog-category-tag">PRJ-005 &bull; Living Furnishings</span>
+          </div>
+          <div class="catalog-body">
+            <h4>Luxury Velvet Cushions & Jacquard Runners</h4>
+            <p>Heavy crushed velvet cushion collections with metallic gold embroidery, piped seams, and metallic thread woven table runners for Middle East retailers.</p>
+            <div style="font-size: 0.78rem; color: var(--port-orange); font-weight: 700; margin-top: auto;">
+              CLIENTS: NASIMI/OMAR &bull; BEST S
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Rugs & Floor Covering -->
+        <div class="catalog-item-card">
+          <div class="catalog-img-box">
+            <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80" alt="Port Logistics Stack">
+            <span class="catalog-category-tag">PRJ-009 &bull; Rugs & Mats</span>
+          </div>
+          <div class="catalog-body">
+            <h4>Panipat Woven Cotton Rugs & Bath Mats</h4>
+            <p>Handcrafted flatweave and tufted cotton rugs from Panipat weaving mills, featuring updated high-GSM yarn specs and non-slip eco TPR backing.</p>
+            <div style="font-size: 0.78rem; color: var(--port-orange); font-weight: 700; margin-top: auto;">
+              CLIENT: LINEN HOUSE AUSTRALIA
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Printed Curtains -->
+        <div class="catalog-item-card">
+          <div class="catalog-img-box">
+            <img src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80" alt="Container Cargo Ship Sea Craft">
+            <span class="catalog-category-tag">PRJ-010 &bull; Window Drapery</span>
+          </div>
+          <div class="catalog-body">
+            <h4>Spring Floral Printed Blackout Curtains</h4>
+            <p>Thermal insulated blackout curtain panels with stainless steel eyelets, rotary screen printed botanical patterns, and color-fast pre-production strike-offs.</p>
+            <div style="font-size: 0.78rem; color: var(--port-orange); font-weight: 700; margin-top: auto;">
+              CLIENT: BEST S RETAIL
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GLOBAL RETAILERS BAND -->
+    <div class="retailers-band" id="corridors">
+      <div class="retailers-wrap">
+        <div class="retailers-top">
+          <h4><i class="fa-solid fa-globe" style="color: var(--port-orange);"></i> Global Retail Giants Serviced by Ma Maison:</h4>
+          <span style="font-size: 0.8rem; color: var(--sea-cyan); font-weight: 700;">100% On-Time International Deliveries</span>
+        </div>
+        <div class="retailer-badges-grid">
+          <div class="retailer-box">
+            <div class="brand-title">JACENT</div>
+            <div class="region-sub">USA &bull; 3 Orders</div>
+          </div>
+          <div class="retailer-box">
+            <div class="brand-title">LINEN HOUSE</div>
+            <div class="region-sub">AUSTRALIA &bull; 2 Orders</div>
+          </div>
+          <div class="retailer-box">
+            <div class="brand-title">CBC GLOBAL</div>
+            <div class="region-sub">CANADA &bull; 3 Orders</div>
+          </div>
+          <div class="retailer-box">
+            <div class="brand-title">BEST S</div>
+            <div class="region-sub">EUROPE &bull; 2 Orders</div>
+          </div>
+          <div class="retailer-box">
+            <div class="brand-title">NASIMI / OMAR</div>
+            <div class="region-sub">MIDDLE EAST &bull; 2 Orders</div>
+          </div>
+          <div class="retailer-box">
+            <div class="brand-title">DOLLAR TREE</div>
+            <div class="region-sub">USA &bull; 2 Orders</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: DUAL OPERATIONAL HUBS (DELHI & JAMMU) -->
+    <section id="hubs">
+      <div class="section-title-wrap">
+        <span class="section-eyebrow">Connected Dual Center Operations</span>
+        <h3 class="section-heading">Delhi Corporate HQ & Jammu Logistics Center</h3>
+        <p class="section-subtitle">
+          Real-time SQL database connects corporate buyer management in New Delhi with freight dispatch and quality audit control in Jammu.
+        </p>
+      </div>
+
+      <div class="hubs-grid">
+        <!-- Delhi Corporate Center -->
+        <div class="hub-card delhi-hub">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--port-orange); text-transform: uppercase; letter-spacing: 1px;">
+            <i class="fa-solid fa-star"></i> Corporate Headquarters
+          </span>
+          <h4>New Delhi Executive Center</h4>
+          <p>Drives buyer relations with US and European retail accounts, sampling studio, price costing, and international contract negotiation.</p>
+          <div class="hub-details">
+            <div class="hub-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Barakhamba Executive Towers & Okhla Textile Studio, New Delhi</span>
+            </div>
+            <div class="hub-row">
+              <i class="fa-solid fa-user-tie"></i>
+              <span>Key Teams: International Merchandisers, CAD Designers, Executive Directors</span>
+            </div>
+            <div class="hub-row">
+              <i class="fa-solid fa-envelope"></i>
+              <span>corporate@mamaison.in &bull; accounts@mamaison.in</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jammu Operations Center -->
+        <div class="hub-card jammu-hub">
+          <span style="font-size: 0.72rem; font-weight: 800; color: var(--sea-cyan); text-transform: uppercase; letter-spacing: 1px;">
+            <i class="fa-solid fa-truck-ramp-box"></i> Regional Hub
+          </span>
+          <h4>Jammu Regional Logistics & QA Hub</h4>
+          <p>Coordinates factory production audits, mill yarn checks across northern clusters, container stuffing, and Nhava Sheva port dispatch.</p>
+          <div class="hub-details">
+            <div class="hub-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Bari Brahmana Industrial & Freight Logistics Complex, Jammu (J&K)</span>
+            </div>
+            <div class="hub-row">
+              <i class="fa-solid fa-clipboard-check"></i>
+              <span>Key Teams: AQL 2.5 Quality Auditors, Container Loading Supervisors</span>
+            </div>
+            <div class="hub-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>Regional Logistics Desk: +91 (0191) 248-XXXX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom: 1.2rem;">
+          <div class="brand-icon-box"><i class="fa-solid fa-ship"></i></div>
+          <div class="brand-text">
+            <h1 style="font-size: 1.35rem;">MA <span>MAISON</span></h1>
+            <p>Indian Export Conglomerate</p>
+          </div>
+        </div>
+        <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.6; max-width: 380px;">
+          Government recognized Indian export manufacturing house delivering certified home textiles, beddings, and commercial furnishings to global retail giants across North America, Europe, Australia, and the Middle East.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Multimodal Freight</h5>
+        <ul>
+          <li><a href="#fleet">Ocean Container Vessels</a></li>
+          <li><a href="#fleet">Port Gantry Terminals</a></li>
+          <li><a href="#fleet">Heavy Trailer Trucks</a></li>
+          <li><a href="#fleet">Express Air Freight</a></li>
+          <li><a href="#catalog">14 Product Lines</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Port Operations</h5>
+        <ul>
+          <li><a href="#hubs">Delhi Corporate HQ</a></li>
+          <li><a href="#hubs">Jammu Logistics Center</a></li>
+          <li><a href="#corridors">Nhava Sheva (JNPT)</a></li>
+          <li><a href="#corridors">Mundra Port (Gujarat)</a></li>
+          <li><a href="javascript:void(0)" onclick="openAuthModal('login')">Executive BI Portal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Authorized Staff Access</h5>
+        <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Delhi and Jammu team members can access the central SQL Master Tracker, Kanban priority board, and BI suite.
+        </p>
+        <button onclick="openAuthModal('login')" class="btn btn-orange" style="width: 100%; justify-content: center;">
+          <i class="fa-solid fa-lock"></i> Open Employee Portal
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 Ma Maison Export Conglomerate. All rights reserved. Registered Export House, New Delhi & Jammu, India.</div>
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--cargo-green);">
+        <i class="fa-solid fa-circle"></i> Central SQL Server Active &bull; Delhi HQ & Jammu Synced
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= AUTH MODAL: BESPOKE CARGO GATE PASS DESIGN ================= -->
+  <div class="modal-backdrop" id="authModalBackdrop">
+    <div class="cargo-gate-pass-modal">
+      <div class="gate-pass-top-bar"></div>
+      <div class="gate-pass-header">
+        <button class="modal-close-btn" onclick="closeAuthModal()"><i class="fa-solid fa-xmark"></i></button>
+        <h3><i class="fa-solid fa-id-badge" style="color: var(--port-orange);"></i> Personnel Port Pass</h3>
+        <p>Ma Maison Executive BI Suite &bull; Multi-User Secure Authentication</p>
+      </div>
+
+      <!-- Auth Navigation Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tabBtnLogin" onclick="switchAuthTab('login')">
+          <i class="fa-solid fa-right-to-bracket"></i> Login
+        </button>
+        <button class="auth-tab-btn" id="tabBtnRegister" onclick="switchAuthTab('register')">
+          <i class="fa-solid fa-user-plus"></i> Request ID
+        </button>
+        <button class="auth-tab-btn" id="tabBtnForgot" onclick="switchAuthTab('forgot')">
+          <i class="fa-solid fa-key"></i> Forgot Password
+        </button>
+      </div>
+
+      <div class="auth-body">
+        <!-- Error & Success Alert Boxes -->
+        <div id="authAlertError" class="alert-box alert-error"></div>
+        <div id="authAlertSuccess" class="alert-box alert-success"></div>
+
+        <!-- TAB 1: LOGIN -->
+        <div class="tab-content active" id="tabContentLogin">
+          <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+            <div class="form-group">
+              <label>Username or Official Work Email</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" id="loginUsername" class="form-control" placeholder="e.g. admin, sarah, or priya" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required>
+              </div>
+            </div>
+
+            <div class="notice-box">
+              <i class="fa-solid fa-shield-halved"></i>
+              <div>
+                <strong>Security Governance:</strong> Only the Administrator can grant active login permissions. New accounts remain locked until Admin approval in Delhi/Jammu.
+              </div>
+            </div>
+
+            <button type="submit" id="loginSubmitBtn" class="btn btn-orange btn-block">
+              <i class="fa-solid fa-right-to-bracket"></i> Authenticate & Enter Portal
+            </button>
+          </form>
+
+          <div style="margin-top: 1.2rem; text-align: center; font-size: 0.82rem; color: var(--text-muted);">
+            Need an employee login ID? <a href="javascript:void(0)" onclick="switchAuthTab('register')" style="color: var(--port-orange); text-decoration: none; font-weight: 700;">Request account from Admin &rarr;</a>
+          </div>
+        </div>
+
+        <!-- TAB 2: REQUEST NEW ACCOUNT -->
+        <div class="tab-content" id="tabContentRegister">
+          <form id="registerForm" onsubmit="handleRegisterSubmit(event)">
+            <div class="notice-box">
+              <i class="fa-solid fa-circle-info"></i>
+              <div>
+                <strong>Admin Provisioning Rule:</strong> Submitting this form requests an ID. The System Administrator will review your branch and issue your final credentials.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Full Employee Name</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-id-card"></i>
+                <input type="text" id="regFullName" class="form-control" placeholder="e.g. Rakesh Sharma" required>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div class="form-group">
+                <label>Operational Branch</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-building"></i>
+                  <select id="regBranch" class="form-control" required>
+                    <option value="Delhi HQ">Delhi Corporate HQ</option>
+                    <option value="Jammu Office">Jammu Regional Hub</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Department</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-briefcase"></i>
+                  <select id="regDepartment" class="form-control" required>
+                    <option value="Merchandising">Merchandising</option>
+                    <option value="Quality & Lab Testing">Quality & Lab Testing</option>
+                    <option value="Logistics & Port Freight">Logistics & Port Freight</option>
+                    <option value="Accounts & Costing">Accounts & Costing</option>
+                    <option value="Executive Management">Executive Management</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Official Email</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="regEmail" class="form-control" placeholder="name@mamaison.in" required>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div class="form-group">
+                <label>Desired Username</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-at"></i>
+                  <input type="text" id="regUsername" class="form-control" placeholder="e.g. rakesh.s" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Desired Password</label>
+                <div class="input-wrapper">
+                  <i class="fa-solid fa-key"></i>
+                  <input type="password" id="regPassword" class="form-control" placeholder="••••••••" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>WhatsApp / Phone Number</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-phone"></i>
+                <input type="text" id="regPhone" class="form-control" placeholder="+91 98765 43210">
+              </div>
+            </div>
+
+            <button type="submit" id="regSubmitBtn" class="btn btn-orange btn-block">
+              <i class="fa-solid fa-paper-plane"></i> Submit Request to Admin
+            </button>
+          </form>
+        </div>
+
+        <!-- TAB 3: FORGOT PASSWORD -->
+        <div class="tab-content" id="tabContentForgot">
+          <form id="forgotForm" onsubmit="handleForgotSubmit(event)">
+            <div class="notice-box">
+              <i class="fa-solid fa-key"></i>
+              <div>
+                <strong>Credentials Assistance:</strong> Submit your username or work email. The Administrator in Delhi/Jammu will review your request and issue updated credentials.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Registered Username or Email</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-user-tag"></i>
+                <input type="text" id="forgotUsername" class="form-control" placeholder="e.g. sarah or sarah.m@mamaison.in" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Notes / Contact Number</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-comment-dots"></i>
+                <input type="text" id="forgotNotes" class="form-control" placeholder="e.g. Please share new credentials on WhatsApp">
+              </div>
+            </div>
+
+            <button type="submit" id="forgotSubmitBtn" class="btn btn-outline-steel btn-block" style="color: var(--port-orange); border-color: var(--port-orange);">
+              <i class="fa-solid fa-envelope-open-text"></i> Submit Reset Ticket to Admin
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Auth Modal Control ---
+    function openAuthModal(tab = 'login') {
+      const backdrop = document.getElementById('authModalBackdrop');
+      backdrop.classList.add('active');
+      clearAlerts();
+      switchAuthTab(tab);
+    }
+
+    function closeAuthModal() {
+      const backdrop = document.getElementById('authModalBackdrop');
+      backdrop.classList.remove('active');
+      clearAlerts();
+    }
+
+    document.getElementById('authModalBackdrop').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeAuthModal();
+      }
+    });
+
+    function switchAuthTab(tab) {
+      clearAlerts();
+      const tabs = ['login', 'register', 'forgot'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
+        const content = document.getElementById(`tabContent${t.charAt(0).toUpperCase() + t.slice(1)}`);
+        if (t === tab) {
+          btn.classList.add('active');
+          content.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+          content.classList.remove('active');
+        }
+      });
+    }
+
+    function showAlert(type, message) {
+      const errBox = document.getElementById('authAlertError');
+      const succBox = document.getElementById('authAlertSuccess');
+      if (type === 'error') {
+        errBox.textContent = message;
+        errBox.style.display = 'block';
+        succBox.style.display = 'none';
+      } else {
+        succBox.textContent = message;
+        succBox.style.display = 'block';
+        errBox.style.display = 'none';
+      }
+    }
+
+    function clearAlerts() {
+      document.getElementById('authAlertError').style.display = 'none';
+      document.getElementById('authAlertSuccess').style.display = 'none';
+    }
+
+    // --- Check Current Session on Load ---
+    async function checkCurrentSession() {
+      try {
+        const res = await fetch('/api/auth/me');
+        const data = await res.json();
+        if (data.authenticated && data.user) {
+          const u = data.user;
+          document.getElementById('openAuthModalBtn').style.display = 'none';
+          document.getElementById('userProfileNav').style.display = 'flex';
+          document.getElementById('navUserBadge').innerHTML = `<i class="fa-solid fa-user-circle"></i> ${u.full_name} (${u.role.toUpperCase()})`;
+          if (u.role === 'admin') {
+            document.getElementById('navAdminBtn').style.display = 'inline-flex';
+          }
+        }
+      } catch (err) {
+        console.log('Session initialized');
+      }
+    }
+    checkCurrentSession();
+
+    // --- Login Submission ---
+    async function handleLoginSubmit(e) {
+      e.preventDefault();
+      clearAlerts();
+      const uname = document.getElementById('loginUsername').value.trim();
+      const pwd = document.getElementById('loginPassword').value.trim();
+      const btn = document.getElementById('loginSubmitBtn');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Authenticating...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: uname, password: pwd })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.detail || data.error || 'Login failed');
+        }
+
+        showAlert('success', `Login successful! Welcome, ${data.user.full_name}. Redirecting...`);
+        localStorage.setItem('ma_maison_token', data.token);
+        localStorage.setItem('ma_maison_user', JSON.stringify(data.user));
+
+        setTimeout(() => {
+          if (data.user.role === 'admin') {
+            window.location.href = '/admin';
+          } else {
+            window.location.href = '/portal';
+          }
+        }, 800);
+      } catch (err) {
+        showAlert('error', err.message);
+        btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Authenticate & Enter Portal';
+        btn.disabled = false;
+      }
+    }
+
+    // --- Register Request Submission ---
+    async function handleRegisterSubmit(e) {
+      e.preventDefault();
+      clearAlerts();
+      const payload = {
+        full_name: document.getElementById('regFullName').value.trim(),
+        branch: document.getElementById('regBranch').value,
+        department: document.getElementById('regDepartment').value,
+        email: document.getElementById('regEmail').value.trim(),
+        username: document.getElementById('regUsername').value.trim(),
+        password: document.getElementById('regPassword').value.trim(),
+        phone: document.getElementById('regPhone').value.trim()
+      };
+
+      const btn = document.getElementById('regSubmitBtn');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting Request...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/auth/register-request', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.detail || 'Could not submit request');
+        }
+
+        showAlert('success', '✅ Account request submitted to Admin! As per company export security protocol, your login credentials will be activated once the Administrator grants access.');
+        document.getElementById('registerForm').reset();
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit Request to Admin';
+        btn.disabled = false;
+      } catch (err) {
+        showAlert('error', err.message);
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Submit Request to Admin';
+        btn.disabled = false;
+      }
+    }
+
+    // --- Forgot Password Submission ---
+    async function handleForgotSubmit(e) {
+      e.preventDefault();
+      clearAlerts();
+      const username_or_email = document.getElementById('forgotUsername').value.trim();
+      const notes = document.getElementById('forgotNotes').value.trim();
+
+      const btn = document.getElementById('forgotSubmitBtn');
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting Ticket...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/api/auth/forgot-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username_or_email, notes })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.detail || 'Failed to submit request');
+        }
+
+        showAlert('success', '✅ Password reset ticket logged! The Administrator in Delhi/Jammu will provide your updated credentials.');
+        document.getElementById('forgotForm').reset();
+        btn.innerHTML = '<i class="fa-solid fa-envelope-open-text"></i> Submit Reset Ticket to Admin';
+        btn.disabled = false;
+      } catch (err) {
+        showAlert('error', err.message);
+        btn.innerHTML = '<i class="fa-solid fa-envelope-open-text"></i> Submit Reset Ticket to Admin';
+        btn.disabled = false;
+      }
+    }
+
+    // --- Logout ---
+    async function handleLogout() {
+      try {
+        await fetch('/api/auth/logout', { method: 'POST' });
+        localStorage.removeItem('ma_maison_token');
+        localStorage.removeItem('ma_maison_user');
+        window.location.reload();
+      } catch (err) {
+        window.location.reload();
+      }
+    }
+  
+    // ====================================================================
+    // EXECUTIVE DIGITAL WATCH TICKER (Time, Date, Seconds, Day)
+    // ====================================================================
+    let isClock24Hour = false;
+
+    function toggleClock12_24() {
+      isClock24Hour = !isClock24Hour;
+      updateExecutiveDigitalWatch();
+    }
+
+    function updateExecutiveDigitalWatch() {
+      const now = new Date();
+      
+      let rawHours = now.getHours();
+      let ampm = '';
+      let displayHours = rawHours;
+
+      if (!isClock24Hour) {
+        ampm = rawHours >= 12 ? 'PM' : 'AM';
+        displayHours = rawHours % 12;
+        displayHours = displayHours ? displayHours : 12;
+      }
+
+      const strHours = String(displayHours).padStart(2, '0');
+      const strMins = String(now.getMinutes()).padStart(2, '0');
+      const strSecs = String(now.getSeconds()).padStart(2, '0');
+
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const dayName = days[now.getDay()];
+
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const monthName = months[now.getMonth()];
+      const dateNum = String(now.getDate()).padStart(2, '0');
+      const year = now.getFullYear();
+
+      const elDigits = document.getElementById('clockTimeDigits');
+      const elSecs = document.getElementById('clockSecondsDigits');
+      const elAmPm = document.getElementById('clockAmPm');
+      const elDay = document.getElementById('clockDayName');
+      const elDate = document.getElementById('clockDateFull');
+
+      if (elDigits) elDigits.textContent = `${strHours}:${strMins}`;
+      if (elSecs) elSecs.textContent = `:${strSecs}`;
+      if (elAmPm) {
+        if (isClock24Hour) {
+          elAmPm.textContent = '24H';
+        } else {
+          elAmPm.textContent = ampm;
+        }
+      }
+      if (elDay) elDay.textContent = dayName;
+      if (elDate) elDate.textContent = `${dateNum} ${monthName} ${year}`;
+    }
+
+    setInterval(updateExecutiveDigitalWatch, 1000);
+    updateExecutiveDigitalWatch();
+
+  </script>
+</body>
+</html>
